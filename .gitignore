@@ -1,0 +1,41 @@
+# ============================
+# Python & Entornos Virtuales
+# ============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+
+# ============================
+# Machine Learning & Modelos
+# ============================
+
+*.pt
+*.pth
+*.bin
+*.onnx
+*.safetensors
+*.h5
+/model_cache/
+/backend/core/models/
+
+# =============================
+# Logs y Bases de Datos locales
+# =============================
+
+*.log
+*.sqlite3
+*.db
+
+# ============================
+# OS & Herramientas
+# ============================
+
+.DS_Store
+.vscode/
+.idea/
+.ipynb_checkpoints/
