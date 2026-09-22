@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  api-cognitiva:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: soc_backend_api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Montaje local para ver cambios de código en vivo (Hot Reload)
+      - ./backend:/app
+      # Volumen persistente para no descargar los pesos de Hugging Face en cada reinicio
+      - model_cache:/root/.cache/huggingface
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - soc_network
+
+  dashboard-soc:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: soc_frontend_dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./frontend:/app
+    environment:
+      # Variable de entorno para que el dashboard sepa a dónde enviar las peticiones HTTP
+      - BACKEND_URL=http://api-cognitiva:8000
+      - PYTHONUNBUFFERED=1
+    command: streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+    depends_on:
+      - api-cognitiva
+    networks:
+      - soc_network
+
+networks:
+  soc_network:
+    driver: bridge
+
+volumes:
+  model_cache:
