@@ -1,0 +1,1502 @@
+[
+  {
+    "id": "T001",
+    "titulo": "Solicitud de mouse nuevo",
+    "texto": "El mouse que tengo es muy viejo y la rueda ya no gira bien, quisiera solicitar uno nuevo cuando sea posible.",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T002",
+    "titulo": "Cambiar fondo de pantalla",
+    "texto": "Quiero que el fondo de pantalla de mi portátil tenga el logo nuevo de la empresa. Por favor que alguien lo cambie hoy.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T003",
+    "titulo": "Instalar Power BI",
+    "texto": "Necesito que me instalen Power BI Desktop para preparar los informes del próximo trimestre.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T004",
+    "titulo": "Firma de correo",
+    "texto": "¿Cómo configuro la firma del correo con mi nuevo cargo de coordinador? No encuentro la opción en Outlook.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T005",
+    "titulo": "Pantalla adicional para oficina",
+    "texto": "Me gustaría tener un segundo monitor en mi oficina para trabajar con dos documentos a la vez.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T006",
+    "titulo": "Duda sobre vacaciones en el portal",
+    "texto": "Hola, quería saber en qué parte de la intranet se solicitan las vacaciones, no lo encuentro.",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T007",
+    "titulo": "Licencia de Visio",
+    "texto": "Solicito una licencia de Visio para documentar los diagramas de red del datacenter.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T008",
+    "titulo": "Tamaño de letra muy pequeño",
+    "texto": "La letra del correo se ve muy pequeña en mi computador, quiero que la pongan más grande.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T009",
+    "titulo": "ayuda con el teams",
+    "texto": "como hago para cambiar mi foto en teams?? gracias",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": true,
+    "nota": "Título vago; el texto aclara que solo quiere cambiar la foto de perfil."
+  },
+  {
+    "id": "T010",
+    "titulo": "Acceso a carpeta de contabilidad",
+    "texto": "Solicito permisos de lectura a la carpeta compartida de Contabilidad 2026 para revisar los cierres.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Contiene 'acceso' pero es una solicitud de permisos, no una falla."
+  },
+  {
+    "id": "T011",
+    "titulo": "Capacitación en Excel",
+    "texto": "¿TI ofrece alguna capacitación de Excel avanzado para mi equipo? Somos 6 personas.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T012",
+    "titulo": "Cambio de nombre en el correo",
+    "texto": "Mi nombre aparece mal escrito en el directorio del correo, falta la tilde en Muñoz.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T013",
+    "titulo": "Audífonos con micrófono",
+    "texto": "Para las reuniones virtuales necesito unos audífonos con micrófono, los míos se dañaron.",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T014",
+    "titulo": "urgente!!!",
+    "texto": "Necesito que alguien me explique cómo poner el fuera de oficina en el correo antes de mi viaje del viernes.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": true,
+    "nota": "Marcado como urgente, pero es una consulta de configuración. Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T015",
+    "titulo": "Instalar Zoom",
+    "texto": "¿Me pueden instalar Zoom? Un cliente pidió hacer la reunión por esa plataforma.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T016",
+    "titulo": "Cambio de puesto",
+    "texto": "La próxima semana me cambio al piso 3, ¿pueden trasladar mi computador y el teléfono?",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T017",
+    "titulo": "Documentación del nuevo firewall",
+    "texto": "Solicito acceso a la documentación del proveedor del nuevo firewall para preparar la capacitación interna.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Menciona seguridad (firewall) pero no hay amenaza."
+  },
+  {
+    "id": "T018",
+    "titulo": "lo del calendario",
+    "texto": "quiero que mi equipo vea mi calendario pero no se como compartirlo, me ayudan",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": true,
+    "nota": "Redacción informal; es una consulta de uso."
+  },
+  {
+    "id": "T019",
+    "titulo": "Portátil para practicante",
+    "texto": "Llega un practicante el lunes a mi área y necesita un portátil con Office.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T020",
+    "titulo": "Teclado en inglés",
+    "texto": "El teclado que me asignaron está en inglés y no tiene la ñ, ¿lo pueden cambiar?",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T021",
+    "titulo": "Configurar correo en el iPad",
+    "texto": "Quiero tener el correo corporativo también en mi iPad personal, ¿me ayudan a configurarlo?",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T022",
+    "titulo": "pregunta",
+    "texto": "ola, donde descargo el certificado de ingresos y retenciones? en el portal no aparece",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": true,
+    "nota": "Título sin información y texto con errores; es una consulta."
+  },
+  {
+    "id": "T023",
+    "titulo": "Sugerencia para la intranet",
+    "texto": "Sería bueno que la intranet tuviera un buscador de extensiones telefónicas.",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T024",
+    "titulo": "Impresora para sala nueva",
+    "texto": "Abrimos una sala de reuniones nueva y queremos conectar la impresora del piso.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T025",
+    "titulo": "Renovación de dominio en 60 días",
+    "texto": "Recordatorio: el dominio de la página corporativa vence en 60 días, hay que programar la renovación.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T026",
+    "titulo": "cosita con el pc",
+    "texto": "nada grave, solo quiero que me quiten los iconos que sobran del escritorio",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": true,
+    "nota": "Título vago. Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T027",
+    "titulo": "Cambio de contraseña programado",
+    "texto": "El sistema me avisa que mi contraseña vence en 10 días, ¿cómo la cambio con anticipación?",
+    "rol_usuario": "Empleado General",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Contiene 'contraseña' pero no hay falla ni amenaza."
+  },
+  {
+    "id": "T028",
+    "titulo": "Plantilla de Word",
+    "texto": "Necesito la plantilla oficial de Word con el membrete actualizado.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T029",
+    "titulo": "Aplicación para notas",
+    "texto": "¿Qué aplicación recomiendan para tomar notas en las juntas directivas?",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T030",
+    "titulo": "Más espacio en OneDrive",
+    "texto": "Mi OneDrive está al 85 %, ¿se puede ampliar la cuota?",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "solicitud",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T031",
+    "titulo": "Computador lento",
+    "texto": "Mi computador tarda mucho en abrir Excel, pero termina abriendo. Pasa desde la semana pasada.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T032",
+    "titulo": "Portátil lento",
+    "texto": "El portátil va muy lento cuando tengo muchas pestañas abiertas en el navegador.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T033",
+    "titulo": "Impresora atascada",
+    "texto": "La impresora del segundo piso se atasca cada vez que imprimo a doble cara; a una cara funciona bien.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T034",
+    "titulo": "Outlook se cierra a veces",
+    "texto": "Outlook se cierra solo unas dos veces al día. Lo vuelvo a abrir y sigue funcionando.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T035",
+    "titulo": "Monitor parpadea",
+    "texto": "El monitor parpadea de vez en cuando, sobre todo en la mañana.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T036",
+    "titulo": "no carga bien",
+    "texto": "la pagina de la intranet carga a medias, a veces sale y a veces no",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "Vago; intermitente y no bloquea el trabajo."
+  },
+  {
+    "id": "T037",
+    "titulo": "Disco al 80% en servidor de pruebas",
+    "texto": "El servidor de pruebas tiene el disco al 80 %. No afecta producción, pero conviene limpiar logs.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T038",
+    "titulo": "Wi-Fi intermitente en sala B",
+    "texto": "En la sala de juntas B el Wi-Fi se cae cada rato; con cable funciona.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T039",
+    "titulo": "Tecla que no responde",
+    "texto": "La tecla E de mi teclado a veces no responde, toca presionarla dos veces.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T040",
+    "titulo": "esto no sirve",
+    "texto": "el proyector de la sala de juntas se ve con colores raros, alcanzamos a presentar pero se ve mal",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "Título alarmista, pero hay alternativa. Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T041",
+    "titulo": "Teams sin video",
+    "texto": "En Teams no me funciona la cámara, por ahora hago las reuniones solo con audio.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T042",
+    "titulo": "Excel lento con archivo grande",
+    "texto": "Un archivo de presupuesto de 40 MB tarda varios minutos en guardar.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T043",
+    "titulo": "Correo llega tarde",
+    "texto": "Algunos correos me llegan con 20 o 30 minutos de retraso.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T044",
+    "titulo": "el sistema esta raro",
+    "texto": "el programa de facturacion se pone lento a las 11 am, despues de un rato vuelve a la normalidad",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "'Raro' es vago; el texto describe lentitud temporal."
+  },
+  {
+    "id": "T045",
+    "titulo": "Backup tardó más de lo normal",
+    "texto": "El backup de anoche terminó bien pero tardó 3 horas más de lo habitual.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T046",
+    "titulo": "Audio entrecortado",
+    "texto": "En las llamadas por Teams mi voz se entrecorta, con el celular funciona bien.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T047",
+    "titulo": "Batería del celular corporativo",
+    "texto": "La batería del celular corporativo me dura medio día.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T048",
+    "titulo": "Escáner no envía al correo",
+    "texto": "El escáner del piso no envía al correo, pero sí guarda en la USB.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "Menciona USB pero no hay amenaza."
+  },
+  {
+    "id": "T049",
+    "titulo": "pantallazo azul una vez",
+    "texto": "ayer el computador se reinició solo con una pantalla azul, hoy ha estado normal",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "Fallo puntual que no se repitió."
+  },
+  {
+    "id": "T050",
+    "titulo": "Mouse inalámbrico falla",
+    "texto": "El mouse inalámbrico se desconecta a ratos; cambié las pilas y sigue igual. Estoy usando el touchpad.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T051",
+    "titulo": "Reporte tarda en generarse",
+    "texto": "El reporte de cartera en el ERP tarda 15 minutos en generarse, antes tardaba 2.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T052",
+    "titulo": "lentitud vpn",
+    "texto": "usuarios dicen que la vpn esta lenta en las tardes, conectan pero va lento",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "Degradación, no caída: los usuarios sí conectan."
+  },
+  {
+    "id": "T053",
+    "titulo": "Píxel muerto en el monitor",
+    "texto": "Mi monitor tiene un punto negro en la esquina, se puede trabajar pero molesta.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T054",
+    "titulo": "Calendario no sincroniza",
+    "texto": "Las reuniones nuevas no aparecen en el celular, en el computador sí.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T055",
+    "titulo": "Impresora imprime muy claro",
+    "texto": "La impresora de mi oficina imprime muy claro, parece que falta tóner.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "Trampa de sesgo: rol alto, pero no es seguridad; el rol no suma."
+  },
+  {
+    "id": "T056",
+    "titulo": "algo pasa con el internet",
+    "texto": "el internet va lento en todo el piso 4 desde el almuerzo",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": true,
+    "nota": "Afecta a un piso, pero es lentitud, no caída."
+  },
+  {
+    "id": "T057",
+    "titulo": "Actualizaciones interrumpen reuniones",
+    "texto": "Windows me pide reiniciar para actualizaciones en medio de reuniones.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T058",
+    "titulo": "Archivo de Excel dañado",
+    "texto": "Un archivo de Excel no abre, pero tengo una copia de ayer en OneDrive.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T059",
+    "titulo": "Certificado SSL vence en 15 días",
+    "texto": "El certificado SSL de la intranet vence en 15 días; hay que renovarlo antes de que los navegadores muestren alerta.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T060",
+    "titulo": "Teléfono IP con eco",
+    "texto": "El teléfono de escritorio tiene eco en las llamadas, uso el celular mientras tanto.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T061",
+    "titulo": "Correo sospechoso del banco",
+    "texto": "Me llegó un correo que dice ser del banco pidiendo actualizar mis datos. No le di clic, ¿qué hago?",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T062",
+    "titulo": "USB desconocida en el escritorio",
+    "texto": "Encontré una memoria USB en mi escritorio que no es mía. No la he conectado.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T063",
+    "titulo": "Me pidieron un código por WhatsApp",
+    "texto": "Alguien que dice ser de TI me escribió por WhatsApp pidiendo el código que me llegó por SMS. No se lo di.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T064",
+    "titulo": "Cuenta bloqueada",
+    "texto": "Mi usuario quedó bloqueado después de equivocarme con la clave y no puedo entrar a nada.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "Contiene 'bloqueado'; impide trabajar pero no es seguridad."
+  },
+  {
+    "id": "T065",
+    "titulo": "No enciende el portátil",
+    "texto": "Mi portátil no enciende, ni siquiera con el cargador conectado, y tengo junta en una hora.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "Impide trabajar. Rol alto, pero no es seguridad: no suma."
+  },
+  {
+    "id": "T066",
+    "titulo": "VPN no conecta desde casa",
+    "texto": "Estoy trabajando desde casa y la VPN no conecta, sin ella no puedo acceder al ERP.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T067",
+    "titulo": "me salio algo raro",
+    "texto": "me salio una ventana diciendo que mi pc tiene virus y que llame a un numero, no he llamado",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Estafa de falso soporte técnico: sospecha sin compromiso (no llamó)."
+  },
+  {
+    "id": "T068",
+    "titulo": "Llamada pidiendo datos de proveedores",
+    "texto": "Me llamó alguien diciendo ser auditor y pidió la lista de proveedores con cuentas bancarias. Le dije que lo enviaría por escrito.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T069",
+    "titulo": "correo raro de un proveedor",
+    "texto": "un proveedor nos mando un correo diciendo que cambio de cuenta bancaria para los pagos, se ve normal pero me parece raro",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Posible fraude BEC; todavía no se ha pagado nada."
+  },
+  {
+    "id": "T070",
+    "titulo": "Consola de backups no carga",
+    "texto": "La consola de administración de backups no carga y no puedo verificar las copias de esta noche.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T071",
+    "titulo": "Equipo no enciende",
+    "texto": "Llegué y el computador no prende, la luz del botón no se enciende.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T072",
+    "titulo": "No abre el programa contable",
+    "texto": "El programa contable me sale error al iniciar y no puedo registrar facturas; mis compañeros sí pueden entrar.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T073",
+    "titulo": "Adjunto .zip inesperado",
+    "texto": "Recibí un correo de un cliente con un .zip que no esperaba. No lo abrí y lo reporto por si acaso.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T074",
+    "titulo": "ayuda no puedo trabajar",
+    "texto": "no me deja entrar al sistema, me dice credenciales invalidas y estoy seguro que es la clave",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Lo más probable es una clave vencida; sin otros indicios de compromiso."
+  },
+  {
+    "id": "T075",
+    "titulo": "Olvidé la contraseña del correo",
+    "texto": "No recuerdo la contraseña del correo y no puedo entrar desde esta mañana.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "Contiene 'contraseña' y el rol es alto, pero no es seguridad."
+  },
+  {
+    "id": "T076",
+    "titulo": "Ventanas emergentes en el navegador",
+    "texto": "Al abrir Chrome aparecen ventanas de publicidad que antes no salían.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "Posible adware."
+  },
+  {
+    "id": "T077",
+    "titulo": "Pantalla negra al iniciar",
+    "texto": "El computador enciende pero se queda en pantalla negra, no carga Windows.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T078",
+    "titulo": "no tengo correo",
+    "texto": "desde el celular no me entra el correo y estoy de viaje, necesito leer un contrato hoy",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Vago; impide trabajar durante el viaje. No es seguridad."
+  },
+  {
+    "id": "T079",
+    "titulo": "Desconocido pidió entrar a servidores",
+    "texto": "Un señor que dice ser técnico del proveedor de aire acondicionado quería entrar a la sala de servidores sin cita. No lo dejé pasar.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T080",
+    "titulo": "Teclado no funciona",
+    "texto": "El teclado dejó de funcionar por completo y no tengo otro.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T081",
+    "titulo": "mensaje de microsoft",
+    "texto": "me llego un correo de microsoft diciendo que mi buzon esta lleno y que entre a un link para ampliarlo, no le di",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Phishing típico, sin clic."
+  },
+  {
+    "id": "T082",
+    "titulo": "No imprimen los cheques",
+    "texto": "La impresora de cheques no responde y hoy es día de pagos a proveedores.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T083",
+    "titulo": "SMS con premio",
+    "texto": "Me llegó un SMS al celular corporativo diciendo que gané un premio y que entre a un enlace. No entré.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T084",
+    "titulo": "Error al enviar correos",
+    "texto": "Ningún correo me sale, todos quedan en la bandeja de salida con error.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T085",
+    "titulo": "Un colega pidió mi contraseña",
+    "texto": "Un compañero de otra área me pidió mi contraseña para revisar algo en mi usuario. No se la di, pero quiero reportarlo.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T086",
+    "titulo": "pc con ruido",
+    "texto": "el pc hace un ruido muy fuerte y se apago solo, ahora no quiere prender",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Redacción informal; falla de hardware que impide trabajar."
+  },
+  {
+    "id": "T087",
+    "titulo": "Teams no abre antes de la junta",
+    "texto": "Teams no me abre y en 20 minutos tengo reunión con la junta directiva.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "Rol alto, pero no es seguridad: no suma."
+  },
+  {
+    "id": "T088",
+    "titulo": "Pantalla rota",
+    "texto": "Se me cayó el portátil y la pantalla quedó rota, no se ve nada.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T089",
+    "titulo": "Correo de RRHH con enlace raro",
+    "texto": "Llegó un correo de 'Recursos Humanos' con un enlace para ver la nueva nómina, pero el remitente es raro. No abrí el enlace.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T090",
+    "titulo": "lo del certificado",
+    "texto": "me sale una alerta de certificado no seguro cuando entro al portal de bancos, no se si seguir",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": true,
+    "nota": "Posible interceptación; todavía no ha ingresado datos."
+  },
+  {
+    "id": "T091",
+    "titulo": "Ingresé mi clave en un enlace",
+    "texto": "Le di clic a un correo que parecía de Microsoft y escribí mi usuario y contraseña. Después me di cuenta de que la página era falsa.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T092",
+    "titulo": "Antivirus detectó troyano",
+    "texto": "El antivirus me mostró que detectó un troyano y no pudo eliminarlo.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T093",
+    "titulo": "Inicio de sesión desde otro país",
+    "texto": "Me llegó una alerta de inicio de sesión en mi cuenta desde Rusia, yo estoy en Bogotá.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Par de sesgo con el mismo caso de un Gerente (nivel 5)."
+  },
+  {
+    "id": "T094",
+    "titulo": "Correo pidiendo confirmar transferencia",
+    "texto": "Recibí un correo que parece de nuestro banco pidiendo confirmar una transferencia. No hice nada todavía.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T095",
+    "titulo": "USB en la sala de juntas",
+    "texto": "Encontré una USB sin marca en la sala de juntas después de la reunión con un proveedor. No la conecté.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T096",
+    "titulo": "Phishing a cuenta de administrador",
+    "texto": "Me llegó un correo que imita al proveedor de la nube pidiendo validar mi cuenta de administrador. No ingresé datos.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T097",
+    "titulo": "Nadie del área entra al ERP",
+    "texto": "Desde las 8 am nadie del área de compras puede entrar al ERP; sale error de conexión.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T098",
+    "titulo": "Nómina caída para el departamento",
+    "texto": "El sistema de nómina no carga para nadie en contabilidad y hoy se cierra la nómina.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T099",
+    "titulo": "Sede norte sin internet",
+    "texto": "La sede norte está sin internet desde hace una hora; somos 40 personas sin poder trabajar.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T100",
+    "titulo": "el pc hace cosas raras",
+    "texto": "el mouse se mueve solo y se abren programas sin que yo haga nada",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Probable acceso remoto; no hay evidencia de impacto en datos todavía."
+  },
+  {
+    "id": "T101",
+    "titulo": "algo raro con mi clave",
+    "texto": "me llegaron 3 correos de codigos de verificacion que yo no pedi",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Alguien intenta entrar a la cuenta: base 3 + 1 por rol."
+  },
+  {
+    "id": "T102",
+    "titulo": "Llamada haciéndose pasar por TI",
+    "texto": "Alguien llamó a mi asistente diciendo ser de TI y pidió mi usuario para 'una actualización'. Ella no dio datos.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T103",
+    "titulo": "Abrí una factura con malware",
+    "texto": "Descargué una factura de un correo y el antivirus alertó de malware; ya había abierto el archivo.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T104",
+    "titulo": "Servidor de archivos de finanzas caído",
+    "texto": "El servidor de archivos de Finanzas no responde; el área completa no tiene acceso a sus carpetas.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T105",
+    "titulo": "Perdí el portátil del trabajo",
+    "texto": "Dejé el portátil de la empresa en un taxi. Tiene información de clientes.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T106",
+    "titulo": "clic en enlace del correo",
+    "texto": "le di click a un link de un correo de paqueteria, se abrio una pagina en blanco y ya, no puse nada",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Clic sin credenciales = sospecha (base 3) + 1 por rol."
+  },
+  {
+    "id": "T107",
+    "titulo": "Facturación caída para ventas",
+    "texto": "El sistema de facturación no funciona para nadie en ventas, no podemos facturar a los clientes.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T108",
+    "titulo": "whatsapp del abogado",
+    "texto": "me escribio un numero que dice ser nuestro abogado pidiendo que apruebe un pago urgente, no conteste todavia",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Suplantación sin pago todavía: base 3 + 1 por rol."
+  },
+  {
+    "id": "T109",
+    "titulo": "Credenciales del ERP en sitio falso",
+    "texto": "Entré a un enlace de 'actualización del ERP' y puse mi usuario y clave antes de darme cuenta.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T110",
+    "titulo": "muchos intentos fallidos",
+    "texto": "en el log del AD veo cientos de intentos fallidos contra varias cuentas desde una ip externa",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Fuerza bruta sin acceso confirmado: base 3 + 1 por rol."
+  },
+  {
+    "id": "T111",
+    "titulo": "Compré tarjetas de regalo por correo falso",
+    "texto": "Recibí un correo 'del CEO' pidiendo comprar tarjetas de regalo con urgencia. Compré una de 100 dólares antes de dudar.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Fraude con pérdida pequeña."
+  },
+  {
+    "id": "T112",
+    "titulo": "Página web corporativa caída",
+    "texto": "La página web de la empresa no carga para los clientes desde hace 30 minutos.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T113",
+    "titulo": "Antivirus desactivado solo",
+    "texto": "El antivirus aparece desactivado y no me deja activarlo de nuevo.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Señal típica de malware."
+  },
+  {
+    "id": "T114",
+    "titulo": "Portátil olvidado en el aeropuerto",
+    "texto": "Dejé mi portátil en el aeropuerto; ya lo recuperé en objetos perdidos, pero estuvo 2 horas fuera de mi vista.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T115",
+    "titulo": "virus?",
+    "texto": "el excel me pidio habilitar macros de un archivo que mando un cliente y le di que si, despues el pc se puso super lento",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Macros habilitadas + síntomas: probable infección."
+  },
+  {
+    "id": "T116",
+    "titulo": "Call center sin llamadas",
+    "texto": "Ninguna línea del call center recibe llamadas; los clientes no pueden comunicarse.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T117",
+    "titulo": "Certificado de VPN vencido",
+    "texto": "Venció el certificado de la VPN y ningún usuario remoto puede conectarse.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T118",
+    "titulo": "me robaron el celular",
+    "texto": "me robaron el celular del trabajo en el bus, tenia el correo y el whatsapp de la empresa",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": true,
+    "nota": "Dispositivo robado con acceso a datos."
+  },
+  {
+    "id": "T119",
+    "titulo": "Factura de proveedor desconocido",
+    "texto": "Me llegó una 'factura vencida' de un proveedor que no conozco, con un archivo adjunto. No lo abrí.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "Base 3 (sospecha) + 1 por rol."
+  },
+  {
+    "id": "T120",
+    "titulo": "Sistema de turnos caído",
+    "texto": "El sistema de turnos se cayó y el área de atención no puede llamar a los clientes en espera.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T121",
+    "titulo": "Archivos con extensión .lock",
+    "texto": "Desde esta mañana ningún archivo abre y todos terminan en .lock. Hay un archivo LEEME que pide pago en bitcoin.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Ransomware: nivel 5 sin importar el rol."
+  },
+  {
+    "id": "T122",
+    "titulo": "Nota de rescate en el escritorio",
+    "texto": "Apareció un archivo de texto en el escritorio que dice que mis archivos fueron cifrados y que pague para recuperarlos.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T123",
+    "titulo": "Archivos compartidos cifrados",
+    "texto": "Los archivos de la carpeta compartida del área cambiaron de nombre y no abren, todos tienen una extensión rara.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T124",
+    "titulo": "Transferencia aprobada por correo falso",
+    "texto": "Aprobé una transferencia de 80 millones por un correo que parecía del banco; el banco dice que no lo envió.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T125",
+    "titulo": "Ingresé mi clave en un phishing",
+    "texto": "Ingresé mi usuario y contraseña en una página que parecía el portal de la empresa; ahora sé que era falsa.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Base 4 + 1 por rol. Par de sesgo con el mismo caso de un Empleado (nivel 4)."
+  },
+  {
+    "id": "T126",
+    "titulo": "Alerta del EDR en un servidor",
+    "texto": "El EDR marcó un proceso sospechoso en el servidor de aplicaciones y está haciendo conexiones a una IP externa.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Base 4 + 1 por rol."
+  },
+  {
+    "id": "T127",
+    "titulo": "creo que me hackearon el correo",
+    "texto": "mis contactos dicen que les llegan correos mios que yo no mande, con links raros",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "La cuenta ya se usa para envíos masivos de phishing."
+  },
+  {
+    "id": "T128",
+    "titulo": "Base de clientes expuesta",
+    "texto": "La base de datos de clientes quedó accesible desde internet sin contraseña y hay registros de descargas externas.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T129",
+    "titulo": "Correo caído en toda la empresa",
+    "texto": "Nadie en la empresa puede enviar ni recibir correos desde hace una hora.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T130",
+    "titulo": "todo se bloqueo",
+    "texto": "todos los archivos tienen nombres raros y salio una pantalla roja con un contador de tiempo",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "Síntomas clásicos de ransomware, descritos sin la palabra."
+  },
+  {
+    "id": "T131",
+    "titulo": "Servidor principal caído",
+    "texto": "El servidor principal no responde y ningún sistema de la empresa funciona: ERP, correo ni archivos.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "operativo",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T132",
+    "titulo": "Mi cuenta envió correos a toda la empresa",
+    "texto": "Desde mi cuenta salió un correo a toda la compañía con un enlace que yo no envié.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T133",
+    "titulo": "el pc hace cosas solo",
+    "texto": "el mouse se mueve solo y vi que se abrio la banca en linea, yo no fui",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "Acceso remoto activo hacia la banca: base 4 + 1 por rol."
+  },
+  {
+    "id": "T134",
+    "titulo": "Pantalla pidiendo bitcoin",
+    "texto": "Al prender el computador salió un mensaje pidiendo 0.5 bitcoin para desbloquear mis archivos.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T135",
+    "titulo": "Cuenta de administrador de dominio usada",
+    "texto": "Detectamos inicios de sesión con la cuenta de administrador de dominio a las 3 am desde una IP desconocida.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Base 4 + 1 por rol."
+  },
+  {
+    "id": "T136",
+    "titulo": "Datos de nómina publicados",
+    "texto": "Un compañero me mostró que la base de nómina con los salarios de todos está publicada en un foro.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T137",
+    "titulo": "las carpetas desaparecieron",
+    "texto": "en la carpeta compartida desaparecieron los archivos y solo quedo uno que se llama COMO_RECUPERAR.txt",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "Nota de rescate: ransomware."
+  },
+  {
+    "id": "T138",
+    "titulo": "Reglas de reenvío que no creé",
+    "texto": "Puse la clave de mi correo en un enlace que me llegó; ahora tengo reglas de reenvío que no creé.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T139",
+    "titulo": "Toda la red caída",
+    "texto": "No hay internet ni red en ninguna sede de la empresa.",
+    "rol_usuario": "Empleado General",
+    "categoria": "operativo",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T140",
+    "titulo": "Troyano bancario en mi portátil",
+    "texto": "El antivirus de mi portátil detectó un troyano bancario y no lo pudo eliminar.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Base 4 + 1 por rol."
+  },
+  {
+    "id": "T141",
+    "titulo": "ayuda urgente me robaron plata",
+    "texto": "de la cuenta de la empresa salieron pagos que nadie autorizo despues de que entre a un link del banco",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "Fraude con pérdida confirmada."
+  },
+  {
+    "id": "T142",
+    "titulo": "Ransomware en servidor de backups",
+    "texto": "Los archivos del servidor de backups tienen extensión .encrypted y las copias de la última semana no abren.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T143",
+    "titulo": "Robo de portátil con datos sin cifrar",
+    "texto": "Se robaron el portátil de la sede con la base de clientes sin cifrar; ya hay clientes llamando por correos extraños.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T144",
+    "titulo": "algo grave pasa",
+    "texto": "me dicen de finanzas que aprobe un pago por correo pero yo nunca lo hice, creo que alguien esta usando mi cuenta",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "Cuenta comprometida usada para fraude."
+  },
+  {
+    "id": "T145",
+    "titulo": "Sitio web desfigurado",
+    "texto": "La página web de la empresa muestra un mensaje de hackers en lugar del contenido normal.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T146",
+    "titulo": "Inicio de sesión desde otro país",
+    "texto": "Me llegó una alerta de inicio de sesión en mi cuenta desde otro país y no fui yo.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "Base 4 + 1 por rol. Par de sesgo con el mismo caso de un Supervisor (nivel 4)."
+  },
+  {
+    "id": "T147",
+    "titulo": "ERP caído en el cierre contable",
+    "texto": "El ERP no funciona en ninguna área justo el día de cierre contable.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "operativo",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T148",
+    "titulo": "cpu al 100% en todos los servers",
+    "texto": "todos los servidores estan al 100% de cpu con un proceso raro llamado xmrig",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": true,
+    "nota": "xmrig es un minero de criptomonedas: compromiso activo."
+  },
+  {
+    "id": "T149",
+    "titulo": "Extensión .crypt en mis documentos",
+    "texto": "Mis documentos ahora terminan en .crypt y no abren.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  },
+  {
+    "id": "T150",
+    "titulo": "Datos de clientes a la venta",
+    "texto": "Un cliente nos reenvió un correo con una lista de nuestros clientes y sus datos que alguien está vendiendo.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": ""
+  }
+]
