@@ -58,35 +58,35 @@ backend/
 |---|-------|---------|--------|
 | 1.1 | `TicketRequest` con `titulo`, `texto`, `rol_usuario` | `api/schemas.py` | ✅ |
 | 1.2 | `TicketResponse` con `titulo` y `nivel_prioridad_texto` | `api/schemas.py` | ✅ |
-| 1.3 | Roles como `Enum`/`Literal`: rol desconocido → 422 | `api/schemas.py` | ⏳ |
-| 1.4 | `str_strip_whitespace` + `titulo` con `min_length=5` (texto en blanco → 422, no 500) | `api/schemas.py` | ⏳ |
-| 1.5 | Agregar `id` (uuid4) y `creado_en` a `TicketResponse` | `api/schemas.py` | ⏳ |
-| 1.6 | Mover heurística a `calcular_prioridad(titulo, texto, rol)` | `core/triage_rules.py` | 🔧 |
-| 1.7 | Analizar **título + descripción** buscando **palabras completas** (no subcadenas) | `core/triage_rules.py` | 🔧 |
-| 1.8 | `explicacion_xai` refleja los factores reales (rol + palabras detectadas y su aporte) | `core/triage_rules.py` | 🔧 |
-| 1.9 | Cola en memoria guardando el mismo objeto `TicketResponse` | `core/queue_store.py` | 🔧 |
-| 1.10 | `GET /api/queue` con `response_model=QueueResponse` | `main.py` | 🔧 |
-| 1.11 | `GET /api/roles` → lista oficial de roles (el frontend no la copia a mano) | `main.py` | ⏳ |
-| 1.12 | Tests: rol inválido, texto en blanco, palabra crítica en el título, "antivirus" no cuenta como "virus", orden de la cola | `tests/test_triage.py` | ⏳ |
+| 1.3 | Roles como `Enum`/`Literal`: rol desconocido → 422 | `api/schemas.py` | ✅ |
+| 1.4 | `str_strip_whitespace` + `titulo` con `min_length=5` (texto en blanco → 422, no 500) | `api/schemas.py` | ✅ |
+| 1.5 | Agregar `id` (uuid4) y `creado_en` a `TicketResponse` | `api/schemas.py` | ✅ |
+| 1.6 | Mover heurística a `calcular_prioridad(titulo, texto, rol)` | `core/triage_rules.py` | ✅ |
+| 1.7 | Analizar **título + descripción** buscando **palabras completas** (no subcadenas) | `core/triage_rules.py` | ✅ |
+| 1.8 | `explicacion_xai` refleja los factores reales (rol + palabras detectadas y su aporte) | `core/triage_rules.py` | ✅ |
+| 1.9 | Cola en memoria guardando el mismo objeto `TicketResponse` | `core/queue_store.py` | ✅ |
+| 1.10 | `GET /api/queue` con `response_model=QueueResponse` | `main.py` | ✅ |
+| 1.11 | `GET /api/roles` → lista oficial de roles (el frontend no la copia a mano) | `main.py` | ✅ |
+| 1.12 | Tests: rol inválido, texto en blanco, palabra crítica en el título, "antivirus" no cuenta como "virus", orden de la cola | `tests/test_triage.py` | ✅ |
 
 ### ✅ Frontend
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 1.13 | Formulario: Rol (select cargado desde `/api/roles`) + Título + Descripción | `app.py` | ⏳ |
-| 1.14 | Validar campos vacíos antes de enviar | `app.py` | ⏳ |
-| 1.15 | Manejar respuestas del backend: 200 / 422 (mostrar errores) / backend caído | `app.py` | ⏳ |
-| 1.16 | Cola leída desde `GET /api/queue` (no desde `session_state`) | `app.py` | ⏳ |
-| 1.17 | Tarjeta: badge CRÍTICO/ALTO/MEDIO/BAJO con color, título, rol, descripción | `app.py` | ⏳ |
-| 1.18 | Expander con el gráfico de factores (`explicacion_xai`) | `app.py` | ⏳ |
+| 1.13 | Formulario: Rol (select cargado desde `/api/roles`) + Título + Descripción | `app.py` | ✅ |
+| 1.14 | Validar campos vacíos antes de enviar | `app.py` | ✅ |
+| 1.15 | Manejar respuestas del backend: 200 / 422 (mostrar errores) / backend caído | `app.py` | ✅ |
+| 1.16 | Cola leída desde `GET /api/queue` (no desde `session_state`) | `app.py` | ✅ |
+| 1.17 | Tarjeta: badge CRÍTICO/ALTO/MEDIO/BAJO con color, título, rol, descripción | `app.py` | ✅ |
+| 1.18 | Expander con el gráfico de factores (`explicacion_xai`) | `app.py` | ✅ |
 
 ### ✅ Datos
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 1.19 | Definir criterio de etiquetado (qué es prioridad 1…5) por escrito | `evaluation/GUIA_ETIQUETADO.md` | ⏳ |
-| 1.20 | Dataset de ~150 tickets en español: `titulo`, `texto`, `rol_usuario`, `prioridad` | `evaluation/sample_tickets.json` | ⏳ |
-| 1.21 | Incluir ~20% de tickets **ambiguos o mal escritos** y casos "rol alto + problema trivial" | `evaluation/sample_tickets.json` | ⏳ |
+| 1.19 | Definir criterio de etiquetado (qué es prioridad 1…5) por escrito | `evaluation/GUIA_ETIQUETADO.md` | ✅ |
+| 1.20 | Dataset de ~150 tickets en español: `titulo`, `texto`, `rol_usuario`, `prioridad` | `evaluation/sample_tickets.json` | ✅ |
+| 1.21 | Incluir ~20% de tickets **ambiguos o mal escritos** y casos "rol alto + problema trivial" | `evaluation/sample_tickets.json` | ✅ |
 
 ### 🗺️ Tabla de Rangos → Peso Base (heurística S1)
 
@@ -100,12 +100,12 @@ backend/
 | CEO / Alta Dirección | 5 |
 
 ### 🏁 Definición de terminado
-- [ ] `docker compose up` levanta los 2 servicios sin errores
-- [ ] Un ticket enviado desde el formulario aparece en la cola, ordenada por prioridad descendente (empates: el más antiguo primero)
-- [ ] Título `"RANSOMWARE en mi equipo"` de un Empleado General → prioridad ≥ 3
-- [ ] Rol inválido o descripción en blanco → 422 (nunca 500)
-- [ ] `pytest` pasa en verde
-- [ ] Dataset de ≥150 tickets etiquetados según la guía
+- [x] `docker compose up` levanta los 2 servicios sin errores
+- [x] Un ticket enviado desde el formulario aparece en la cola, ordenada por prioridad descendente (empates: el más antiguo primero)
+- [x] Título `"RANSOMWARE en mi equipo"` de un Empleado General → prioridad ≥ 3
+- [x] Rol inválido o descripción en blanco → 422 (nunca 500)
+- [x] `pytest` pasa en verde
+- [x] Dataset de ≥150 tickets etiquetados según la guía
 
 ---
 
@@ -265,6 +265,8 @@ backend/
 | 2026-10-02 | El rol se combina con el score del texto, no se mete dentro del texto | El rol es un dato estructurado; separarlo permite medir el sesgo por cargo |
 | 2026-10-02 | Solo español | Reduce trabajo de datos sin afectar el objetivo del proyecto |
 | 2026-10-02 | XAI bajo demanda (`/api/explain/{id}`) | Revelación progresiva: la cola carga rápido; la explicación solo cuando el analista la pide |
+| 2026-10-02 | El rol solo agrava incidentes de **seguridad** (+1 en base 3–4) | Evita el sesgo por cargo: un CEO pidiendo cambiar el fondo sigue siendo prioridad 1. Ver `evaluation/GUIA_ETIQUETADO.md` |
+| 2026-10-02 | Heurística S1 medida contra el dataset: 24 % de exactitud | Prácticamente azar (20 %) y sobre-prioriza 12 trampas de sesgo: justifica el modelo entrenado de la Semana 2 |
 
 ---
 

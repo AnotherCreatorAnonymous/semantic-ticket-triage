@@ -1,0 +1,80 @@
+\documentclass[conference]{IEEEtran}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{cite}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{float}
+
+\begin{document}
+
+\title{Estado del Arte: Triage y Explicabilidad de Tickets de TI y Seguridad mediante Procesamiento de lenguaje natural (NLP) e IA Explicable (XAI)}
+
+\author{
+\IEEEauthorblockN{Carlos Felipe Jimenez Sposito, David Santiago Castro Sierra, Roger Mauricio Duran Guacaneme}
+\IEEEauthorblockA{Facultad de Ingeniería de Sistemas\\
+Escuela Colombiana de Ingeniería Julio Garavito\\
+Bogotá D.C., Colombia}
+}
+
+\maketitle
+
+\begin{abstract}
+Los Centros de Operaciones de Seguridad (SOC) y las mesas de ayuda de TI enfrentan un problema crítico de ``fatiga de alertas'', donde el volumen de tickets supera la capacidad humana de respuesta. Este documento revisa el estado del arte en la evaluación y triage semántico de tickets mediante Procesamiento de Lenguaje Natural (NLP). Para abordar la desconfianza hacia los algoritmos de ``caja negra'', se analiza la integración de Inteligencia Artificial Explicable (XAI), garantizando que el equipo humano comprenda y valide rápidamente la prioridad asignada a cada incidente.
+\end{abstract}
+
+\begin{IEEEkeywords}
+NLP, XAI, triage de tickets, LIME, SHAP, ciberseguridad, SOC, aprendizaje profundo.
+\end{IEEEkeywords}
+
+\section{Introducción}
+Los analistas de ciberseguridad operan bajo presión extrema: un SOC promedio recibe alrededor de 3.832 alertas diarias, de las cuales hasta un 62\% se ignoran por sobrecarga cognitiva y fatiga de alertas \cite{vectra2025}. Reportes más recientes confirman que el problema no cede: otros estudios de la industria reportan cerca de 2.992 alertas diarias por organización, de las cuales un 63\% queda sin atender a tiempo \cite{vectra2026}. Además, la encuesta SANS 2025 señala que el 73\% de los equipos de seguridad considera a los falsos positivos su principal dolor de cabeza \cite{sans2025}. Automatizar el triage de incidentes reportados por usuarios es, por tanto, una necesidad operativa y no solo una mejora de conveniencia. Sin embargo, delegar tareas críticas a un sistema de IA plantea un desafío de confianza: los ingenieros dudan en acatar prioridades de un modelo cuyo razonamiento interno no comprenden, lo que puede llevarlos a ignorar alertas correctas o a sobrecargarse validando decisiones que no logran auditar.
+
+La frontera entre un ticket de soporte general de TI y un incidente crítico de seguridad suele ser difusa desde la perspectiva del usuario final (por ejemplo, un problema de lentitud en el equipo frente a una infección por ransomware). Por ello, el análisis de lenguaje es fundamental para separar las solicitudes operativas rutinarias de las verdaderas amenazas que competen al SOC.
+
+\section{Clasificación de Tickets mediante NLP y Deep Learning}
+El NLP ha transformado la ingesta de texto no estructurado. A diferencia de las reglas basadas en palabras clave exactas, los modelos modernos evalúan el contexto del usuario y la gravedad semántica de la solicitud. Un modelo de triage bien entrenado pondera simultáneamente el rol de la identidad y la criticidad del evento: distingue que el restablecimiento de contraseña de una secretaria requiere atención estándar, pero si el gerente general reporta un presunto ataque, el sistema eleva el ticket a prioridad máxima (Nivel 5). Los algoritmos de Deep Learning y los modelos de lenguaje permiten clasificar estos reportes en tiempo real, minimizando tiempos de respuesta y optimizando la asignación de analistas.
+
+\section{El Rol de la IA Explicable (XAI)}
+El mayor obstáculo de las redes neuronales aplicadas a ciberseguridad es su naturaleza inescrutable. El estado del arte exige acoplar marcos de XAI al clasificador. Destacan dos metodologías: \textbf{LIME} (Local Interpretable Model-Agnostic Explanations) \cite{lime}, ideal para auditar decisiones individuales, indicando qué palabras del ticket (p. ej. ``brecha'', ``gerente'', ``urgente'') detonaron la alta prioridad; y \textbf{SHAP} (SHapley Additive exPlanations) \cite{shap}, basado en teoría de juegos cooperativos, que mapea cómo interactúan todas las variables del sistema para asegurar que el modelo no tenga sesgos ocultos. Al integrar XAI, el dashboard deja de ser un semáforo de prioridades y ofrece una justificación semántica legible, reduciendo el tiempo de validación humana.
+
+\section{Trabajos Relacionados}
+Diversos estudios recientes respaldan este enfoque. Rastogi et al. \cite{rastogi2025} realizaron un estudio mixto con 248 encuestas y 24 entrevistas a analistas de SOC, y encontraron que estos aceptan más fácilmente una alerta de IA —incluso con menor precisión predictiva— cuando la explicación es relevante y está respaldada por evidencia concreta, en lugar de solo mostrar un resultado. Revisiones secundarias en la literatura sugieren que los dashboards con explicaciones interactivas pueden reducir el tiempo de resolución de incidentes en cerca de un 30\%, mientras que se estima que dos tercios de los expertos en seguridad no confían en alertas de IA sin una explicación clara. En conjunto, esta evidencia confirma que la explicabilidad no es un lujo académico, sino un requisito práctico para que el triage automatizado sea adoptado en el mundo real.
+
+\section{Arquitectura y Metodología Propuesta}
+Como aporte práctico, proponemos el diseño de una demo funcional pensada desde la perspectiva de estudiantes de ingeniería de sistemas. La Fig. \ref{fig:arquitectura} resume el flujo de extremo a extremo: el ticket ingresa al módulo NLP, que extrae un vector contextual (rol del solicitante, palabras clave y tono del mensaje); el motor de triage (Deep Learning) pondera rol y criticidad para asignar un nivel de prioridad del 1 al 5; el módulo XAI (LIME/SHAP) genera la explicación semántica destacando qué palabras o variables pesaron más en la decisión; y el dashboard presenta al analista la prioridad junto con su justificación, cerrando el ciclo con retroalimentación humana para el reentrenamiento del modelo.
+
+Para la implementación, se entrena el clasificador con tickets etiquetados (reales o sintéticos), usando un modelo ligero tipo transformer o un clasificador clásico (SVM o Naive Bayes) como línea base, y aplicar LIME sobre casos individuales para depurar el sistema. La meta del MVP es demostrar que un ticket del ``gerente general'' reportando un ``ataque'' recibe Nivel 5 automáticamente, con una explicación visible que resalte esas dos señales.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth, height=10cm, keepaspectratio]{Diagrama de Arquitectura.drawio.png}
+\caption{Arquitectura propuesta para el triage semántico de tickets con XAI.}
+\label{fig:arquitectura}
+\end{figure}
+
+\section{Demo Técnica y Aporte a la Industria}
+Para consolidar la aplicabilidad del proyecto, se definen los siguientes entregables:
+\begin{itemize}
+    \item \textbf{Demo Técnica Propuesta:} Un pipeline funcional que ingesta el texto y metadatos de los tickets, evalúa su criticidad mediante modelos de NLP, y despliega los resultados en un panel interactivo (Streamlit o Gradio) que justifica visualmente la prioridad asignada utilizando XAI.
+    \item \textbf{Aporte a la Industria:} La implementación de esta arquitectura ataca directamente la ineficiencia operativa. Al automatizar la evaluación semántica, el sistema busca reducir la tasa del 63\% de alertas abandonadas documentadas por Vectra AI \cite{vectra2026}. Filtrar el ruido operativo mediante un triage auditable mitigará el impacto de los falsos positivos (el problema principal para el 73\% de los equipos de seguridad \cite{sans2025}), permitiendo proyectar reducciones de hasta un 30\% en los tiempos de resolución (MTTR) al evitar que el analista deba descifrar el razonamiento de una ``caja negra''.
+\end{itemize}
+
+\section{Retos y Trabajo Futuro}
+Quedan retos abiertos: evitar sesgos si el modelo prioriza solo por el cargo del usuario y no por el riesgo real; calibrar el detalle de la explicación según el rol del analista (Tier 1 necesita algo rápido; un threat hunter, más profundidad); y validar el sistema con tickets ambiguos o mal escritos, el caso más común en soporte real. El trabajo futuro incluye pruebas con usuarios reales y comparar LIME frente a SHAP en tiempo de respuesta dentro del dashboard.
+
+\section{Conclusión}
+La vanguardia en la priorización de tickets SOC no reside únicamente en construir el clasificador de texto más preciso, sino el más transparente. La combinación de NLP para entender el contexto humano con marcos de explicabilidad como LIME o SHAP para auditar las decisiones representa el estándar actual de la industria, mitigando la fatiga de alertas y empoderando a los equipos de TI para reaccionar con rapidez y confianza comprobable.
+
+\begin{thebibliography}{6}
+\bibitem{lime} M. T. Ribeiro, S. Singh, and C. Guestrin, ``\!`Why should I trust you?' Explaining the predictions of any classifier,'' in \emph{Proc. ACM SIGKDD Int. Conf. Knowledge Discovery and Data Mining}, 2016.
+\bibitem{shap} S. M. Lundberg and S.-I. Lee, ``A unified approach to interpreting model predictions,'' in \emph{Proc. 31st Int. Conf. Neural Information Processing Systems (NeurIPS)}, 2017.
+\bibitem{rastogi2025} N. Rastogi, S. Pant, D. Dhanuka, A. Saxena, and P. Mairal, ``Too much to trust? Measuring the security and cognitive impacts of explainability in AI-driven SOCs,'' in \emph{Proc. ACM Conf. Computer and Communications Security (CCS)}, 2025.
+\bibitem{sans2025} SANS Institute, ``2025 SANS Detection and Response Survey,'' SANS Institute, 2025.
+\bibitem{vectra2025} Vectra AI, ``State of Threat Detection 2025,'' Vectra AI, Inc., San Jose, CA, 2024.
+\bibitem{vectra2026} Vectra AI, ``2026 State of Threat Detection and Response Report,'' Vectra AI, Inc., San Jose, CA, 2026.
+\end{thebibliography}
+
+\end{document}
