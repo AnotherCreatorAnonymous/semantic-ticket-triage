@@ -25,6 +25,9 @@ PALABRAS_CRITICAS = {
     "pagar", "rescate", "bitcoin", "dinero_rescate", "desbloquear_pago",
     # Compromiso
     "brecha", "hackeo", "ataque", "datos_robados", "acceso_no_autorizado", "penetracion",
+    # Hardware desconocido/sospechoso (infiltración física)
+    "memoria", "usb", "pendrive", "dispositivo", "extraño", "desconocida",
+    "impresora", "aparecio", "encontre", "nunca"
     # Síntomas de compromiso severo
     "criptolocker", "petya", "wannacry", "notpetya"
 }
