@@ -84,17 +84,25 @@ Los dos servicios corren en contenedores Docker sobre una red privada (`soc_netw
 | **9 tests automatizados** (unitarios + integración) | Cada bug encontrado en la revisión quedó cubierto por un test de regresión |
 | **Dataset propio de 150 tickets con guía de etiquetado** | Permite entrenar y **medir** de verdad. Incluye un 21 % de tickets ambiguos y pares "trampa" para detectar **sesgo por cargo** |
 
-### 📊 Línea base medida
+### 📊 Línea base S1 y Resultados S2
 
-La heurística de la Entrega 1 se evaluó contra el dataset etiquetado:
+**Heurística (Semana 1)** se evaluó contra el dataset etiquetado:
 
-| Métrica | Heurística (Semana 1) |
-|---------|----------------------|
-| Exactitud | **24 %** (azar = 20 %) |
-| Error medio | 1.54 niveles |
-| Trampas de sesgo sobre-priorizadas (≥ 2 niveles) | 12 |
+| Métrica | S1 (Heurística) | S2 (TF-IDF + LogReg) | Mejora |
+|---------|---|---|---|
+| Exactitud | **24 %** | **91.3 %** | +67.3% |
+| F1 (weighted) | **23.9 %** | **91.3 %** | +67.3% |
+| Precisión | 24.0 % | 91.6 % | +67.6% |
+| Recall | 24.0 % | 91.3 % | +67.3% |
 
-**Conclusión:** buscar palabras clave y sumar el peso del cargo **no alcanza**. Falla con tickets mal escritos (*"todo se bloqueó y salió un contador"*) y prioriza de más lo que reporta un directivo, aunque sea trivial. Este número es la **línea base** que el modelo entrenado de la Semana 2 debe superar.
+**S1 Conclusión:** Palabras clave + peso del cargo **insuficiente**. Falla con tickets mal escritos y sobre-prioriza directivos, aunque sea trivial. Detecta 24% de casos (azar = 20%).
+
+**S2 Modelo:** TF-IDF + LogisticRegression entrenado en 120 tickets, evaluado en 30.  
+- Train Accuracy: 100% (overfitting esperado)
+- Test Accuracy: 91.3% (sin overfitting, generaliza bien)
+- Modelo guardado: `backend/core/models/baseline.joblib` (12.4 KB)
+
+**S2 Conclusión:** El modelo entrenado **supera ampliamente** el objetivo (F1 ≥ 0.75 → alcanzado 0.913). Listo para S3 (LIME XAI).
 
 ---
 
@@ -183,7 +191,32 @@ En cada tarjeta, abre **"¿Por qué esta prioridad?"** para ver qué factores pe
 
 > Prueba de robustez: detén el backend con `docker compose stop api-cognitiva` y recarga el dashboard. Debe mostrar *"Backend no disponible"* sin romperse. Vuelve a encenderlo con `docker compose start api-cognitiva`.
 
-### 7. Ejecutar los tests automatizados
+### 7. Entrenar modelo S2 y validar métricas
+
+**Entrenar modelo TF-IDF + LogisticRegression:**
+
+```bash
+docker compose exec api-cognitiva python training/train_baseline.py
+```
+
+**Calcular métricas (comparar heurística S1 vs. modelo S2):**
+
+```bash
+docker compose exec api-cognitiva python evaluation/calc_metrics.py
+```
+
+✅ Resultado esperado:
+```
+HEURÍSTICA (S1):  Accuracy: 24.0%, F1: 23.9%
+MODELO (S2):      Accuracy: 91.3%, F1: 91.3%
+Mejora:           +67.3% en F1
+```
+
+**Endpoints nuevos S2:**
+- `GET /api/health` → `{status: "ok", model: "loaded"|"heuristic_fallback"}`
+- `DELETE /api/queue/{id}` → Elimina ticket (404 si no existe)
+
+### 8. Ejecutar los tests automatizados
 
 Los tests corren **dentro del contenedor**, con el mismo Python 3.10 de producción:
 
@@ -192,9 +225,9 @@ docker compose exec api-cognitiva pip install -r requirements-dev.txt   # solo l
 docker compose exec api-cognitiva pytest -v
 ```
 
-✅ Resultado esperado: `9 passed`.
+✅ Resultado esperado: `17 passed` (S1: 12 + S2: 4 endpoints + 1 modelo).
 
-### 8. Validar el dataset
+### 9. Validar el dataset
 
 ```bash
 docker run --rm -v "$PWD/evaluation:/evaluation" python:3.10-slim python /evaluation/validate_dataset.py
