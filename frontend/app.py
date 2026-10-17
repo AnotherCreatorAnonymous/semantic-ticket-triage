@@ -56,7 +56,7 @@ def cargar_roles() -> list:
     return api_client.obtener_roles()
 
 
-def render_grafico_factores(explicacion: dict, color: str):
+def render_grafico_factores(explicacion: dict, color: str, key: str = None):
     df = pd.DataFrame(list(explicacion.items()), columns=["Factor", "Aporte"])
     df["Tipo"] = df["Factor"].apply(lambda f: "Rol" if f.startswith("rol: ") else "Palabra clave")
     df = df.sort_values("Aporte")
@@ -76,7 +76,7 @@ def render_grafico_factores(explicacion: dict, color: str):
         xaxis_title="Puntos que aporta a la prioridad",
         yaxis_title="",
     )
-    st.plotly_chart(fig, width="stretch")
+    st.plotly_chart(fig, key=key, use_container_width=True)
 
 
 def render_ticket(ticket: dict):
@@ -102,7 +102,7 @@ def render_ticket(ticket: dict):
                 "Semana 1: factores de la heurística (peso del rol + palabras clave). "
                 "En la Semana 3 se reemplazan por explicaciones LIME del modelo."
             )
-            render_grafico_factores(ticket["explicacion_xai"], colores_grafico.get(color, "#1f77b4"))
+            render_grafico_factores(ticket["explicacion_xai"], colores_grafico.get(color, "#1f77b4"), key=f"chart_{ticket['id']}")
 
 
 # ---------------------------------------------------------------------------

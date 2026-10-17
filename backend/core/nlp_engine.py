@@ -5,7 +5,12 @@ from api.schemas import RolUsuario
 from core.triage_rules import PESO_ROL, ETIQUETAS
 import numpy as np
 
-MODEL_PATH = Path(__file__).parent / "models" / "baseline.pkl"
+# Ruta robusta: busca modelo en múltiples ubicaciones
+_MODEL_CANDIDATES = [
+    Path(__file__).parent / "models" / "baseline.pkl",  # Ubicación esperada
+    Path(__file__).parent.parent.parent / "backend" / "core" / "models" / "baseline.pkl",  # Fallback
+]
+MODEL_PATH = next((p for p in _MODEL_CANDIDATES if p.exists()), _MODEL_CANDIDATES[0])
 
 class NLPEngine:
     def __init__(self):
