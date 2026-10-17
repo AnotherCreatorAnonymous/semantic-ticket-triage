@@ -25,7 +25,7 @@ for path in DATASET_PATHS:
         break
 if not DATASET_PATH:
     raise FileNotFoundError(f"Dataset no encontrado en: {DATASET_PATHS}")
-MODEL_PATH = Path(__file__).parent / "models" / "baseline.pkl"
+MODEL_PATH = Path(__file__).parent.parent / "core" / "models" / "baseline.pkl"
 MODEL_PATH.parent.mkdir(exist_ok=True)
 
 def load_dataset():
