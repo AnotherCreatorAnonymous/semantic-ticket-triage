@@ -3,7 +3,7 @@
 import { enviarTicket, ErrorValidacion } from "@/lib/api-client";
 import type { RolUsuario, TicketRequest } from "@/types/api";
 import { Alert } from "./ui/Alert";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
   roles: string[];
@@ -13,10 +13,16 @@ interface Props {
 export function TicketForm({ roles, onSuccess }: Props) {
   const [titulo, setTitulo] = useState("");
   const [texto, setTexto] = useState("");
-  const [rol, setRol] = useState(roles[0] || "");
+  const [rol, setRol] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string[]>([]);
   const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    if (roles.length > 0 && !rol) {
+      setRol(roles[0]);
+    }
+  }, [roles, rol]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,7 +133,7 @@ export function TicketForm({ roles, onSuccess }: Props) {
 
       <button
         type="submit"
-        disabled={loading || !roles.length}
+        disabled={loading || !titulo.trim() || !texto.trim() || !rol}
         className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
       >
         {loading ? "⏳ Enviando..." : "🚀 Enviar Ticket"}
