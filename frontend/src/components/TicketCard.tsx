@@ -70,7 +70,7 @@ export function TicketCard({ ticket, onDelete }: Props) {
               </div>
               
               {/* Title */}
-              <h3 className="text-2xl font-bold text-white leading-tight mt-3 group-hover:text-blue-200 transition-colors">
+              <h3 className="text-2xl font-bold text-white leading-tight mt-3 transition-colors">
                 {ticket.titulo}
               </h3>
             </div>
