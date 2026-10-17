@@ -6,6 +6,7 @@ from api.schemas import RolUsuario
 
 PESO_ROL = {
     RolUsuario.EMPLEADO: 1,
+    RolUsuario.SECRETARIA: 2,
     RolUsuario.ANALISTA: 2,
     RolUsuario.SUPERVISOR: 3,
     RolUsuario.GERENTE: 4,
