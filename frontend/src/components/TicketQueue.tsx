@@ -23,7 +23,7 @@ export function TicketQueue() {
   }
 
   if (isLoading) {
-    return <div className="text-center py-8 text-gray-500">Cargando cola...</div>;
+    return <div className="text-center py-12 text-slate-400 text-lg">Cargando cola...</div>;
   }
 
   if (error) {
@@ -43,25 +43,30 @@ export function TicketQueue() {
   }
 
   return (
-    <div>
-      <div className="mb-4 flex justify-between items-center">
-        <h2 className="text-xl font-bold">Cola de Tickets ({total} total)</h2>
-        <span className="text-sm text-gray-600">
-          Mostrando {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, tickets.length)} de {tickets.length}
-        </span>
+    <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl border border-slate-700/50 p-6">
+      <div className="mb-6 flex justify-between items-center border-b border-slate-700 pb-4">
+        <h2 className="text-2xl font-bold text-white">📋 Cola de Tickets</h2>
+        <div className="flex items-center gap-3">
+          <span className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-sm font-bold border border-blue-400/30">
+            {total} total
+          </span>
+        </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="text-xs text-slate-400 mb-6 flex justify-between">
+        <span>Mostrando {(page - 1) * PAGE_SIZE + 1}–{Math.min(page * PAGE_SIZE, tickets.length)} de {tickets.length} tickets</span>
+        <span>Página {page} de {totalPages}</span>
+      </div>
+
+      <div className="space-y-1">
         {paginated.map((ticket) => (
-          <TicketCard
-            key={ticket.id}
-            ticket={ticket}
-            onDelete={borrar}
-          />
+          <TicketCard key={ticket.id} ticket={ticket} onDelete={borrar} />
         ))}
       </div>
 
-      <Pagination currentPage={page} totalPages={totalPages} onChange={setPage} />
+      {totalPages > 1 && (
+        <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+      )}
     </div>
   );
 }

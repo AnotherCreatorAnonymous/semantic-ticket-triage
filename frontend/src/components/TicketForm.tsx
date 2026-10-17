@@ -1,7 +1,7 @@
 "use client";
 
 import { enviarTicket, ErrorValidacion } from "@/lib/api-client";
-import type { RolUsuario, TicketRequest } from "@/types/api";
+import type { RolUsuario } from "@/types/api";
 import { Alert } from "./ui/Alert";
 import { useEffect, useState } from "react";
 
@@ -117,12 +117,12 @@ export function TicketForm({ roles, onSuccess }: Props) {
         <select
           value={rol}
           onChange={(e) => setRol(e.target.value)}
-          className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer"
+          className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer hover:bg-slate-700/70 font-medium"
           required
         >
           {roles && roles.length > 0 ? (
             roles.map((r) => (
-              <option key={r} value={r} className="bg-slate-800">
+              <option key={r} value={r} className="bg-slate-800 text-white">
                 {r}
               </option>
             ))

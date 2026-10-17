@@ -15,6 +15,7 @@ class RolUsuario(str, Enum):
 
 class NivelPrioridad(str, Enum):
     BAJO = "BAJO"
+    MEDIA_BAJA = "MEDIA_BAJA"
     MEDIO = "MEDIO"
     ALTO = "ALTO"
     CRITICO = "CRÍTICO"

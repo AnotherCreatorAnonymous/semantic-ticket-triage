@@ -44,7 +44,7 @@ EXTENSIONES_SOSPECHOSAS = {"lock", "locked", "encrypted", "crypt", "encrypt"}
 BONUS_CRITICO = 2
 BONUS_ALTO = 1
 
-ETIQUETAS = {1: "BAJO", 2: "BAJO", 3: "MEDIO", 4: "ALTO", 5: "CRÍTICO"}
+ETIQUETAS = {1: "BAJO", 2: "MEDIA_BAJA", 3: "MEDIO", 4: "ALTO", 5: "CRÍTICO"}
 
 def normalizar_texto(texto:str) -> str:
     descompuesto = unicodedata.normalize("NFD", texto.lower())
