@@ -13,7 +13,6 @@ interface Props {
 
 export function TicketCard({ ticket, onDelete }: Props) {
   const style = PRIORITY_STYLES[ticket.nivel_prioridad_texto];
-  const [expanded, setExpanded] = useState(false);
   const [deleting, setDeleting] = useState(false);
 
   if (!style) return null;

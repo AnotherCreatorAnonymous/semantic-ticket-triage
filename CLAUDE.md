@@ -7,58 +7,86 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 📋 Project Overview
 
 **SOC-XAI:** Semantic triage of IT/Security tickets with Explainable AI.  
-**Status:** S1 (Week 1) complete + S1 improvements (feature/David); S2 (ML baseline) in progress.
+**Status:** S1 complete + S1 improvements; S2 ML baseline complete; S3 React frontend (in progress).
 
 ### Architecture
 
-Frontend (Streamlit :8501) ↔ Backend (FastAPI :8000)
+Frontend (React/Next.js :8501) ↔ Backend (FastAPI :8000)
 - **Backend:** main.py (endpoints) → api/schemas.py (Pydantic) → core/(triage_rules | nlp_engine | queue_store)
-- **Frontend:** app.py (UI) → api_client.py (HTTP wrapper)
-- **Queue:** In-memory, thread-safe (threading.Lock), sorted by priority (descending)
-- **Tests:** pytest integration + unit tests (12/12 passing)
+- **Frontend:** React 18 + Next.js 14 + TypeScript + Tailwind CSS (reemplaza Streamlit)
+  - Componentes: TicketCard, TicketForm, TicketQueue, XaiChart, HealthIndicator
+  - Hooks: useQueue, useRoles (SWR para estado reactivo)
+  - Tipos: espejo de schemas.py
+  - Proxy rewrites: sin CORS necesario en backend
+- **Queue:** In-memory, thread-safe (threading.Lock), sorted by priority
+- **Tests:** pytest S1-S2 (12/12 passing) + React unit tests (pendiente)
 
 ### Key Decisions
 
 | Decision | Why |
 |----------|-----|
 | **Pydantic Enums** (RolUsuario, NivelPrioridad) | Type-safe; 422 for invalid input (never 500) |
-| **def endpoints** (not sync) | Thread pool execution; heavy ML model won't block others |
-| **XAI contract from S1** (xplicacion_xai: Dict[str, float]) | LIME plugs in S3 without frontend changes |
+| **def endpoints** (not sync) | Thread pool execution; heavy ML model won't block others |
+| **XAI contract from S1** (xplicacion_xai: Dict[str, float]) | LIME plugs in S3 without frontend changes |
 | **UUID + UTC timestamps** | Base for audit, delete, override (S2–S4) |
 | **Thread-safe queue** | Multiple concurrent endpoints accessing _tickets |
+| **React + Next.js** | Type-safe frontend, SSR-ready, Tailwind CSS, SWR for state |
+| **Proxy rewrites** | Backend needs no CORS; frontend calls /api/* locally |
 
 ---
 
 ## 🔨 Common Commands
 
+### Local Setup (Recomendado para desarrollo)
+
+**Backend:**
+```bash
+cd backend
+uv sync
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+
+**Frontend (en otra terminal):**
+```bash
+cd frontend
+npm install
+npm run dev        # Runs on http://localhost:8501
+```
+
 ### Docker
-`ash
-docker compose up --build -d      # Start (first time: 10–30 min)
+
+```bash
+docker compose up --build -d      # Start
 docker compose down               # Stop
 docker compose logs -f api-cognitiva    # Backend logs
 docker compose logs -f dashboard-soc    # Frontend logs
-`
+```
 
 ### Testing
-`ash
-# All tests
-docker compose exec api-cognitiva pytest tests/ -v
 
-# Single test
-docker compose exec api-cognitiva pytest tests/test_triage.py::test_extension_lock_suelto -v
-
-# Local (no Docker)
+**Backend (local):**
+```bash
 cd backend && uv run --with pytest pytest tests/ -v
-`
+```
+
+**Backend (Docker):**
+```bash
+docker compose exec api-cognitiva pytest tests/ -v
+```
+
+**Frontend (local):**
+```bash
+cd frontend && npm test
+```
 
 ### API (Swagger)
 http://localhost:8000/docs → Try endpoints interactively
 
 ### S2 Commands
-`ash
+```bash
 docker compose exec api-cognitiva python training/train_baseline.py
 docker compose exec api-cognitiva python evaluation/calc_metrics.py
-`
+```
 
 ---
 
@@ -66,16 +94,17 @@ docker compose exec api-cognitiva python evaluation/calc_metrics.py
 
 | File | Purpose |
 |------|---------|
-| ackend/core/triage_rules.py | S1 heuristic (role + keywords); replaced by nlp_engine.py in S2 |
-| ackend/core/nlp_engine.py | S2: load & run trained model; same signature as triage_rules |
-| ackend/api/schemas.py | Pydantic contracts (RolUsuario, NivelPrioridad Enums) |
-| ackend/main.py | REST endpoints; calls core/ logic |
-| ackend/core/queue_store.py | Thread-safe in-memory queue |
-| rontend/app.py | Streamlit UI; no business logic |
-| ackend/tests/test_triage.py | 12 integration + unit tests |
-| valuation/sample_tickets.json | 150 labeled tickets (shuffle before train/test split) |
-| valuation/calc_metrics.py | S2: compute F1/precision/recall on test set |
-| 	raining/train_baseline.py | S2: fit TF-IDF + LogisticRegression |
+| backend/core/triage_rules.py | S1 heuristic (role + keywords) |
+| backend/core/nlp_engine.py | S2: load & run trained model |
+| backend/api/schemas.py | Pydantic contracts (Enums, Request/Response) |
+| backend/main.py | REST endpoints |
+| backend/core/queue_store.py | Thread-safe in-memory queue |
+| frontend/src/components/ | React components (TicketCard, Form, Queue, etc.) |
+| frontend/src/hooks/ | useQueue, useRoles (SWR) |
+| frontend/src/lib/ | api-client, priority, xai, format utilities |
+| evaluation/sample_tickets.json | 150 labeled tickets (train/test dataset) |
+| evaluation/calc_metrics.py | S2: compute F1/precision/recall |
+| training/train_baseline.py | S2: fit TF-IDF + LogisticRegression |
 
 ---
 
@@ -93,17 +122,18 @@ docker compose exec api-cognitiva python evaluation/calc_metrics.py
 
 ✅ **S1 Done:** Heuristic, 150-ticket dataset, 12 tests passing  
 ✅ **S1 Improvements:** Thread-safe queue, Enum schema, regex fix for .lock  
-⚠️ **Known issue:** Category leak (level 1 = solicitud, level 2 = operativo)  
-⏳ **S2 In Progress:** Model training, metrics, /api/health, DELETE /queue/{id}
+✅ **S2 Done:** TF-IDF + LogReg, /api/health, DELETE /queue/{id}, tests 17 OK  
+✅ **S3 In Progress:** React frontend (Next.js + TypeScript + Tailwind)  
+⏳ **S3 Next:** Unit tests, Docker stability, docs  
 
 ---
 
 ## 🔄 Git Workflow
 
-**Branch:** eature/<Name> (e.g., eature/David)
+**Branch:** feature/<Name> (e.g., feature/David)
 
 **Commit format:**
-`
+```
 S<week>: <short desc>
 
 - Detail 1
@@ -111,13 +141,14 @@ S<week>: <short desc>
 
 Why: <motivation>
 
-Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
-`
+Co-Authored-By: Claude Haiku 4.5 <noreply@anthropic.com>
+```
 
 ---
 
 ## 📚 References
 
 - **Roadmap:** [plan-entregas.md](plan-entregas.md)
-- **Dataset guide:** [valuation/GUIA_ETIQUETADO.md](evaluation/GUIA_ETIQUETADO.md)
+- **Dataset guide:** [evaluation/GUIA_ETIQUETADO.md](evaluation/GUIA_ETIQUETADO.md)
 - **README:** Full setup instructions
+
