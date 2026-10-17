@@ -2,7 +2,7 @@
 import uuid
 from datetime import datetime, timezone
 from typing import List
-from api.schemas import QueueResponse, RolUsuario, TicketRequest, TicketResponse
+from api.schemas import QueueResponse, RolUsuario, TicketRequest, TicketResponse, NivelPrioridad
 from core import queue_store
 from core.triage_rules import ETIQUETAS, calcular_prioridad
 from fastapi import FastAPI
@@ -21,16 +21,17 @@ def get_roles():
 def process_ticket(ticket: TicketRequest):
     prioridad, explicacion = calcular_prioridad(ticket.titulo, ticket.texto, ticket.rol_usuario)
     ticket_id = str(uuid.uuid4())
+    nivel_texto = ETIQUETAS[prioridad]
     ticket_response = TicketResponse(
         id=ticket_id,
         titulo=ticket.titulo,
         creado_en=datetime.now(timezone.utc),
-        nivel_prioridad_texto=ETIQUETAS[prioridad],
+        nivel_prioridad_texto=NivelPrioridad(nivel_texto),
         prioridad=prioridad,
         texto=ticket.texto,
         rol_usuario=ticket.rol_usuario,
         explicacion_xai=explicacion
-    )    
+    )
     queue_store.agregar(ticket_response)
     return ticket_response
 

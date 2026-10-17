@@ -12,6 +12,12 @@ class RolUsuario(str, Enum):
     ADMIN_TI = "Administrador de TI"
     CEO = "CEO / Alta Dirección"
 
+class NivelPrioridad(str, Enum):
+    BAJO = "BAJO"
+    MEDIO = "MEDIO"
+    ALTO = "ALTO"
+    CRITICO = "CRÍTICO"
+
 class TicketRequest(BaseModel):
     model_config = ConfigDict(str_strip_whitespace=True)
     titulo: str = Field(..., min_length=5, max_length=100, description="Titulo corto del ticket")
@@ -20,14 +26,14 @@ class TicketRequest(BaseModel):
 
 class TicketResponse(BaseModel):
     id: str = Field(..., description="Identificador único del ticket generado por el sistema")
-    titulo: str 
+    titulo: str
     creado_en: datetime = Field(..., description="Timestamp de creación del ticket")
-    nivel_prioridad_texto: str = Field(..., description="Etiqueta legible: CRÍTICO, ALTO, MEDIO, BAJO")
+    nivel_prioridad_texto: NivelPrioridad = Field(..., description="Etiqueta legible: CRÍTICO, ALTO, MEDIO, BAJO")
     prioridad: int = Field(..., ge=1, le=5, description="Nivel de urgencia asignado (1 al 5)")
     texto: str
     rol_usuario: RolUsuario
     explicacion_xai: Dict[str, float] = Field(
-        ..., 
+        ...,
         description="Diccionario de telemetría XAI: mapea variables/palabras clave a su peso predictivo"
     )
 
