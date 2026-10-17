@@ -14,6 +14,7 @@ interface Props {
 export function TicketCard({ ticket, onDelete }: Props) {
   const style = PRIORITY_STYLES[ticket.nivel_prioridad_texto];
   const [deleting, setDeleting] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   if (!style) return null;
 
@@ -31,44 +32,88 @@ export function TicketCard({ ticket, onDelete }: Props) {
   };
 
   return (
-    <div className={`border-l-4 p-6 rounded-xl shadow-lg transition-all ${style.borderColor} ${style.bgColor} mb-4 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-slate-700/50 hover:border-slate-600 hover:shadow-xl`}>
+    <div 
+      className={`border-l-8 p-6 rounded-2xl shadow-xl transition-all duration-300 mb-5 cursor-pointer
+        hover:shadow-2xl hover:scale-[1.01] transform
+        ${style.borderColor} ${style.bgColor}
+        bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm
+        hover:from-white/20 hover:to-white/10
+      `}
+      onClick={() => setExpanded(!expanded)}
+    >
       <div className="flex justify-between items-start mb-4">
         <div className="flex-1">
-          <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold ${style.badgeColor} mb-3`}>
-            {style.emoji} {ticket.nivel_prioridad_texto} · Prioridad {ticket.prioridad}
-          </span>
-          <h3 className="text-xl font-bold text-white mt-3">{ticket.titulo}</h3>
+          <div className={`inline-flex items-center gap-3 px-4 py-2 rounded-full text-sm font-bold ${style.badgeColor} mb-4 shadow-lg`}>
+            <span className="text-lg">{style.emoji}</span>
+            <span>{ticket.nivel_prioridad_texto}</span>
+            <span className="ml-2 px-2 py-0.5 bg-white/20 rounded text-xs font-bold">Prioridad {ticket.prioridad}/5</span>
+          </div>
+          <h3 className={`text-2xl font-bold mt-3 transition-colors ${style.color} text-white`}>
+            {ticket.titulo}
+          </h3>
+        </div>
+        <div className="text-2xl opacity-60">
+          {expanded ? "▼" : "▶"}
         </div>
       </div>
 
-      <div className="flex gap-6 text-sm mb-4">
-        <span className="flex items-center gap-2 text-slate-300">👤 <span className="text-white font-medium">{ticket.rol_usuario}</span></span>
-        <span className="flex items-center gap-2 text-slate-300">🕒 <span className="text-white font-medium">{formatearFecha(ticket.creado_en)}</span></span>
+      <div className="flex flex-wrap gap-6 text-sm mb-5">
+        <div className="flex items-center gap-2">
+          <span className="text-lg">👤</span>
+          <div>
+            <p className="text-slate-400 text-xs">Reportado por</p>
+            <p className="text-white font-bold">{ticket.rol_usuario}</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-lg">🕒</span>
+          <div>
+            <p className="text-slate-400 text-xs">Fecha</p>
+            <p className="text-white font-bold">{formatearFecha(ticket.creado_en)}</p>
+          </div>
+        </div>
       </div>
 
-      <p className="text-slate-200 whitespace-pre-wrap mb-4 leading-relaxed bg-slate-900/30 p-3 rounded-lg">{ticket.texto}</p>
+      <div className={`${style.bgColor} p-4 rounded-xl mb-5 border-l-4 ${style.borderColor}`}>
+        <p className="text-white whitespace-pre-wrap leading-relaxed text-sm font-medium">
+          {ticket.texto}
+        </p>
+      </div>
 
-      <details className="mb-4 cursor-pointer group">
-        <summary className="flex items-center gap-2 font-semibold text-cyan-300 hover:text-cyan-200 transition-colors py-2">
-          <span className="group-open:rotate-90 inline-block transition-transform">▶</span>
-          ¿Por qué esta prioridad?
-        </summary>
-        <div className="mt-4 p-4 bg-slate-900/80 rounded-lg border border-slate-700">
-          <XaiChart
-            explicacion={ticket.explicacion_xai}
-            nivel={ticket.nivel_prioridad_texto}
-          />
+      {expanded && (
+        <div className="mt-6 pt-6 border-t-2 border-white/10 animate-in fade-in duration-300">
+          <h4 className="text-white font-bold mb-4 text-lg">🔍 Análisis de Prioridad</h4>
+          <div className="bg-slate-900/50 p-4 rounded-xl">
+            <XaiChart
+              explicacion={ticket.explicacion_xai}
+              nivel={ticket.nivel_prioridad_texto}
+            />
+          </div>
         </div>
-      </details>
+      )}
 
       {onDelete && (
-        <button
-          onClick={handleDelete}
-          disabled={deleting}
-          className="px-4 py-2 text-sm bg-red-500/30 text-red-300 hover:bg-red-500/40 hover:text-red-100 disabled:opacity-50 transition-all font-medium border border-red-500/40 rounded-lg"
-        >
-          {deleting ? "Eliminando..." : "🗑️ Eliminar"}
-        </button>
+        <div className="flex gap-3 mt-6">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDelete();
+            }}
+            disabled={deleting}
+            className="flex-1 px-4 py-3 text-sm bg-red-500/30 text-red-300 hover:bg-red-500/50 hover:text-red-100 disabled:opacity-50 transition-all font-bold border border-red-500/50 rounded-lg hover:shadow-lg"
+          >
+            {deleting ? "🔄 Eliminando..." : "🗑️ Eliminar Ticket"}
+          </button>
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setExpanded(!expanded);
+            }}
+            className="px-4 py-3 text-sm bg-blue-500/30 text-blue-300 hover:bg-blue-500/50 transition-all font-bold border border-blue-500/50 rounded-lg hover:shadow-lg"
+          >
+            {expanded ? "📖 Contraer" : "📖 Detalles"}
+          </button>
+        </div>
       )}
     </div>
   );

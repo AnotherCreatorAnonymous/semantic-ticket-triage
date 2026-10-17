@@ -4,12 +4,13 @@ import { obtenerRoles } from "@/lib/api-client";
 import useSWR from "swr";
 
 export function useRoles() {
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading, mutate } = useSWR(
     "GET /api/roles",
     () => obtenerRoles(),
     {
-      revalidateOnFocus: false,
-      dedupingInterval: 60000,
+      revalidateOnFocus: true,
+      dedupingInterval: 0,
+      revalidateIfStale: true,
     }
   );
 
@@ -17,5 +18,6 @@ export function useRoles() {
     roles: data || [],
     error,
     isLoading,
+    mutate,
   };
 }
