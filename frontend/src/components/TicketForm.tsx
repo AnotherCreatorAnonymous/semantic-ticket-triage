@@ -34,7 +34,7 @@ export function TicketForm({ roles, onSuccess }: Props) {
       setTexto("");
       setSuccess(true);
       onSuccess?.();
-      setTimeout(() => setSuccess(false), 3000);
+      setTimeout(() => setSuccess(false), 4000);
     } catch (err) {
       if (err instanceof ErrorValidacion) {
         setError(err.errores);
@@ -47,71 +47,90 @@ export function TicketForm({ roles, onSuccess }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm">
-      <h2 className="text-xl font-bold mb-4">Reportar Ticket</h2>
+    <form onSubmit={handleSubmit} className="p-8 bg-white rounded-xl border border-gray-200 shadow-lg hover:shadow-xl transition-shadow">
+      <div className="mb-4">
+        <div className="inline-block bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-1 rounded-full">
+          <h2 className="text-sm font-bold text-white">📝 NUEVO TICKET</h2>
+        </div>
+      </div>
+      <h3 className="text-2xl font-bold text-gray-900 mb-7">Reportar Incidente</h3>
 
       {error.length > 0 && (
         <Alert type="error">
-          <ul className="list-disc pl-5">
+          <ul className="list-disc pl-5 space-y-1">
             {error.map((e, i) => (
-              <li key={i}>{e}</li>
+              <li key={`error-${i}`} className="text-sm">{e}</li>
             ))}
           </ul>
         </Alert>
       )}
 
       {success && (
-        <Alert type="success">✅ Ticket enviado correctamente</Alert>
+        <Alert type="success">
+          <div className="text-sm font-medium">✅ Ticket enviado exitosamente</div>
+        </Alert>
       )}
 
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Título (5-100 caracteres)</label>
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Título del Incidente
+        </label>
         <input
           type="text"
           value={titulo}
           onChange={(e) => setTitulo(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+          placeholder="Ej: Acceso denegado a base de datos"
           maxLength={100}
           required
         />
-        <span className="text-sm text-gray-500">{titulo.length}/100</span>
+        <span className="text-xs text-gray-500 mt-1 block">{titulo.length}/100 caracteres</span>
       </div>
 
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Descripción (10-2000 caracteres)</label>
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Descripción Detallada
+        </label>
         <textarea
           value={texto}
           onChange={(e) => setTexto(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded font-mono text-sm"
-          rows={5}
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition font-mono text-sm"
+          placeholder="Describe el incidente con el máximo detalle posible..."
+          rows={6}
           maxLength={2000}
           required
         />
-        <span className="text-sm text-gray-500">{texto.length}/2000</span>
+        <span className="text-xs text-gray-500 mt-1 block">{texto.length}/2000 caracteres</span>
       </div>
 
-      <div className="mb-4">
-        <label className="block font-medium mb-1">Rango / Rol</label>
+      <div className="mb-6">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
+          Rango / Rol Responsable
+        </label>
         <select
           value={rol}
           onChange={(e) => setRol(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded"
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
           required
         >
-          {roles.map((r) => (
-            <option key={r} value={r}>
-              {r}
-            </option>
-          ))}
+          {roles && roles.length > 0 ? (
+            roles.map((r) => (
+              <option key={r} value={r}>
+                {r}
+              </option>
+            ))
+          ) : (
+            <option disabled>Cargando roles...</option>
+          )}
         </select>
       </div>
 
       <button
         type="submit"
-        disabled={loading}
-        className="px-6 py-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 disabled:opacity-50"
+        disabled={loading || !roles.length}
+        className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg hover:shadow-lg hover:from-blue-700 hover:to-blue-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
       >
-        {loading ? "Enviando..." : "Enviar Ticket"}
+        {loading ? "⏳ Enviando..." : "🚀 Enviar Ticket"}
       </button>
     </form>
   );

@@ -32,9 +32,9 @@ export function HealthIndicator() {
     "Conectando...";
 
   return (
-    <div className="flex items-center gap-2 text-sm">
-      <span className={`inline-block w-2 h-2 rounded-full ${color}`} />
-      <span className="text-gray-600">{label}</span>
+    <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-200 shadow-sm">
+      <div className={`w-3 h-3 rounded-full ${color} animate-pulse`} role="status" aria-label={label} />
+      <span className="text-sm font-medium text-gray-700">{label}</span>
     </div>
   );
 }
