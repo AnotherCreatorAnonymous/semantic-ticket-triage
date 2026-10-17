@@ -30,30 +30,31 @@ def normalizar_texto(texto:str) -> str:
 CRITICAS_NORMALIZADAS = {normalizar_texto(palabra) for palabra in PALABRAS_CRITICAS}
 ALTAS_NORMALIZADAS = {normalizar_texto(palabra) for palabra in PALABRAS_ALTAS}
 
-# Nombre de archivo seguido de una extensión sospechosa, ej. "informe.lock"
+# Extensión sospechosa: con o sin nombre de archivo, ej. "informe.lock" o "termina en .lock"
 _EXTENSIONES_REGEX = "|".join(EXTENSIONES_SOSPECHOSAS)
-PATRON_SOSPECHOSO = re.compile(rf"\b\w+\.({_EXTENSIONES_REGEX})\b")
+PATRON_SOSPECHOSO = re.compile(rf"\.({_EXTENSIONES_REGEX})\b")
 
 def calcular_prioridad(titulo: str, texto: str, rol: RolUsuario) -> Tuple[int, Dict[str, float]]:
     contenido = normalizar_texto(titulo + " " + texto)
 
     tokens = set(re.findall(r"\b\w+\b", contenido))
-    extensiones = set(PATRON_SOSPECHOSO.findall(contenido))
+    extensiones_encontradas = PATRON_SOSPECHOSO.findall(contenido)
+    extensiones = set(extensiones_encontradas)
 
     criticas = (tokens & CRITICAS_NORMALIZADAS) | extensiones
     altas = tokens & ALTAS_NORMALIZADAS
 
-    peso_rol = PESO_ROL[rol]
+    peso_rol = float(PESO_ROL[rol])
     explicacion = {f"rol: {rol.value}": peso_rol}
 
     for palabra in criticas:
         clave = f".{palabra}" if palabra in EXTENSIONES_SOSPECHOSAS else palabra
-        explicacion[clave] = BONUS_CRITICO
+        explicacion[clave] = float(BONUS_CRITICO)
 
     for palabra in altas:
-        explicacion[palabra] = BONUS_ALTO
+        explicacion[palabra] = float(BONUS_ALTO)
 
     bonus = BONUS_CRITICO if criticas else BONUS_ALTO if altas else 0
     prioridad = min(5, peso_rol + bonus)
 
-    return prioridad, explicacion
+    return int(prioridad), explicacion
