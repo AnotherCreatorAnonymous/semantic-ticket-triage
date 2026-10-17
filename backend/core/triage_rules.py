@@ -65,7 +65,18 @@ def calcular_prioridad(titulo: str, texto: str, rol: RolUsuario) -> Tuple[int, D
     for palabra in altas:
         explicacion[palabra] = float(BONUS_ALTO)
 
-    bonus = BONUS_CRITICO if criticas else BONUS_ALTO if altas else 0
-    prioridad = min(5, peso_rol + bonus)
+    # LÓGICA MEJORADA: Prioridad = Riesgo de Seguridad (primero), rol solo suma si hay riesgo
+    if criticas:
+        # CRÍTICO: hay palabras de seguridad críticas → rol suma para urgencia
+        bonus = BONUS_CRITICO
+        prioridad = min(5, peso_rol + bonus)
+    elif altas:
+        # ALTO: hay palabras de seguridad altas → rol suma pero limitado
+        bonus = BONUS_ALTO
+        prioridad = min(4, peso_rol + bonus)
+    else:
+        # BAJO: sin riesgo de seguridad detectado → rol NO suma, máx nivel 2
+        bonus = 0
+        prioridad = min(2, peso_rol) if peso_rol > 1 else 1
 
     return int(prioridad), explicacion
