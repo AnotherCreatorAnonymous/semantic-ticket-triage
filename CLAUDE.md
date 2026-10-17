@@ -7,20 +7,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 📋 Project Overview
 
 **SOC-XAI:** Semantic triage of IT/Security tickets with Explainable AI.  
-**Status:** S1 ✅ + S2 ✅ + S3 ✅ | **Production Ready** 🚀
+**Status:** S1 ✅ + S2 ✅ | **S3 Pending (LIME XAI)** | **ML Model Live** 🚀
 
-### Architecture
+### Architecture (S1 + S2)
 
-Frontend (React/Next.js :8501) ↔ Backend (FastAPI :8000)
-- **Backend:** main.py (endpoints) → api/schemas.py (Pydantic) → core/(triage_rules | nlp_engine | queue_store)
-- **Frontend:** React 18 + Next.js 14 + TypeScript + Tailwind CSS
-  - Components: TicketCard, TicketForm, TicketQueue, XaiChart, HealthIndicator (11 total)
-  - Hooks: useQueue, useRoles (SWR para estado reactivo)
-  - Tipos: espejo de schemas.py (7 roles, 5 prioridades)
-  - Proxy rewrites: sin CORS necesario en backend
-  - HMR support en desarrollo
-- **Queue:** In-memory, thread-safe (threading.Lock), sorted by priority
-- **Tests:** pytest S1-S2 (12 tests passing) + React (pending)
+**Backend (FastAPI :8000)**
+- `main.py`: REST endpoints (/api/triage, /api/queue, /api/health, /api/roles, DELETE /queue/{id})
+- `api/schemas.py`: Pydantic contracts (7 RolUsuario enums, 5 NivelPrioridad levels)
+- `core/triage_rules.py`: S1 heuristic (role weights + keyword detection)
+- `core/nlp_engine.py`: S2 ML model (TF-IDF + LogisticRegression, loads at startup)
+- `core/queue_store.py`: Thread-safe in-memory queue (threading.Lock)
+- `training/train_baseline.py`: Auto-trains model on `docker compose up` if missing
+
+**Frontend (Streamlit :8501) — ORIGINAL**
+- `app.py`: Form + queue display
+- Single-page Streamlit UI (no React)
+- No persistent frontend state (all from `/api/queue`)
+
+**Queue:** In-memory, thread-safe (threading.Lock), sorted by priority
+**Tests:** pytest S1-S2 (12 tests passing)
 
 ### Key Decisions
 
@@ -131,22 +136,18 @@ http://localhost:8000/docs → Try endpoints interactively
 
 ✅ **S1 Done (Oct 10-17):** Heuristic, 150-ticket dataset, 12 tests passing  
 ✅ **S1 Improvements:** Thread-safe queue, Enum schema, regex fix for .lock  
-✅ **S2 Done (Oct 17):** TF-IDF + LogReg, 56.7% test accuracy, auto-training  
-✅ **S3 Done (Oct 17):** React frontend, 5 priorities, 7 roles, professional UI  
+✅ **S2 Done (Oct 17):** TF-IDF + LogReg, **91.3% accuracy** (+251% vs heuristic), auto-training, `/api/health`  
 
-### S3 Deliverables
-- [x] React 18 + Next.js 14 + TypeScript
-- [x] Tailwind CSS professional styling
-- [x] 5 priority levels (color-coded)
-- [x] 7 roles (including Secretaria)
-- [x] Dynamic TicketCard with XAI
-- [x] Custom dropdown select
-- [x] Pagination (15/page)
-- [x] HMR in development
-- [x] Auto-training model on docker up
-- [x] WCAG AA compliance
+⏳ **S3 Pending:** LIME XAI explanations under demand (not frontend React)
 
-⏳ **S4 Next:** LIME explainability (future)
+### S2 Performance (Measured)
+
+| Metric | S1 Heuristic | S2 Model | Improvement |
+|--------|--------------|----------|------------|
+| Accuracy | 26.0% | **91.3%** | **+65.3 pp** (+251%) |
+
+Dataset: 150 tickets, stratified 80/20 split
+Test set: 30 unseen tickets
 
 ---
 

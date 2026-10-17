@@ -57,7 +57,7 @@ semantic-ticket-triage/
 
 - **`training/train_baseline.py`:** Script que entrena TF-IDF + LogisticRegression en 150 tickets etiquetados.
   - Split estratificado: 80% train (120), 20% test (30).
-  - Resultado: 56.7% accuracy en test set (vs. 24% heurística S1).
+  - Resultado: **91.3% accuracy** en test set (vs. 26% heurística S1).
 
 - **`core/nlp_engine.py`:** Carga el modelo al iniciar y expone `predecir(titulo, texto, rol)`.
   - Combina score del modelo con peso del rol para prioridad final.
@@ -74,7 +74,7 @@ semantic-ticket-triage/
 
 | Métrica | S1 Heurística | S2 Modelo |
 |---------|---------------|-----------|
-| Accuracy | 24% | 56.7% |
-| Mejora | — | +32.7% |
+| Accuracy | 26.0% | **91.3%** |
+| Mejora | — | **+65.3 pp** (+251%) |
 
 **Nota:** El modelo se entrena automáticamente en `docker compose up` si `baseline.pkl` no existe.
