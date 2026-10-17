@@ -25,3 +25,14 @@ def limpiar() -> None:
     """
     with _lock:
         _tickets.clear()
+
+def eliminar(ticket_id: str) -> bool:
+    """
+    Elimina un ticket de la cola por ID. Retorna True si se encontró y eliminó.
+    """
+    with _lock:
+        for i, ticket in enumerate(_tickets):
+            if ticket.id == ticket_id:
+                _tickets.pop(i)
+                return True
+        return False

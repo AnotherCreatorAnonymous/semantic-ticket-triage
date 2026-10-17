@@ -16,6 +16,7 @@
 3. **Primero la línea base, después lo sofisticado.** Un modelo simple y rápido (TF-IDF + Regresión Logística) garantiza una entrega funcional; el transformer es una mejora que se compara contra ella.
 4. **Cada semana termina con algo demostrable y verificable** (ver "Definición de terminado").
 5. **Tests desde la Semana 1.** Cada bug corregido se convierte en un test.
+6. **Memory-first development** (S2+): Mantener MEMORY.md actualizado es parte de cada commit. Las decisiones arquitectónicas y reglas quedan documentadas para futuras instancias.
 
 ---
 
