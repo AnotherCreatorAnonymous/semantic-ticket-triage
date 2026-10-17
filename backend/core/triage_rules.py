@@ -13,17 +13,27 @@ PESO_ROL = {
     RolUsuario.CEO: 5
 }
 
+# CRÍTICAS: SOLO palabras que INEQUÍVOCAMENTE indican ataques de seguridad
 PALABRAS_CRITICAS = {
-    "ransomware", "brecha", "ataque", "hackeo", "virus", "malware", "phishing", "spyware", "troyano",
-    "fondo", "pantalla", "rojo", "candado", "ventana", "popup", "popups", "dialogo",
-    "lento", "congelado", "bloqueado", "no abre", "no puedo", "se cierra", "abre solo",
-    "reinicia", "cuelga", "se congela", "desaparece", "extrano", "sospechosa",
-    "pagar", "rescate", "recuperar", "desbloquear", "dinero", "bitcoin",
-    "cifrado", "encriptado", "protegido", "datos", "archivo", "corrupto", "critico"
+    # Tipos de malware/ataques
+    "ransomware", "malware", "virus", "troyano", "phishing", "spyware", "gusano", "botnet",
+    # Síntomas específicos de ransomware
+    "candado", "encriptado", "cifrado", "bloqueado_archivos",
+    # Comportamiento de malware
+    "no_puedo_cerrar", "abre_solo", "reinicia_solo", "ventanas_infinitas",
+    # Extorsión/rescate
+    "pagar", "rescate", "bitcoin", "dinero_rescate", "desbloquear_pago",
+    # Compromiso
+    "brecha", "hackeo", "ataque", "datos_robados", "acceso_no_autorizado", "penetracion",
+    # Síntomas de compromiso severo
+    "criptolocker", "petya", "wannacry", "notpetya"
 }
 
+# ALTAS: palabras de seguridad importantes pero no críticas
 PALABRAS_ALTAS = {
-    "acceso", "contrasena", "urgente", "error", "falla", "problema", "permisos", "cuenta"
+    "contraseña", "acceso", "cuenta", "permisos", "credenciales",
+    "urgente", "critico", "emergencia", "alerta",
+    "error_sistema", "falla_critica", "problema_seguridad"
 }
 
 EXTENSIONES_SOSPECHOSAS = {"lock", "locked", "encrypted", "crypt", "encrypt"}
