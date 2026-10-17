@@ -1,11 +1,11 @@
-import joblib
+import pickle
 from pathlib import Path
 from typing import Dict, Tuple
 from api.schemas import RolUsuario
 from core.triage_rules import PESO_ROL, ETIQUETAS
 import numpy as np
 
-MODEL_PATH = Path(__file__).parent / "models" / "baseline.joblib"
+MODEL_PATH = Path(__file__).parent / "models" / "baseline.pkl"
 
 class NLPEngine:
     def __init__(self):
@@ -17,7 +17,8 @@ class NLPEngine:
         if not MODEL_PATH.exists():
             raise FileNotFoundError(f"Model not found at {MODEL_PATH}")
         
-        artifact = joblib.load(MODEL_PATH)
+        with open(MODEL_PATH, 'rb') as f:
+            artifact = pickle.load(f)
         self.model = artifact["model"]
         self.metadata = artifact["metadata"]
         self.loaded = True

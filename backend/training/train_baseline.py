@@ -3,7 +3,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import json
-import joblib
+import pickle
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
@@ -12,8 +12,20 @@ import numpy as np
 from api.schemas import RolUsuario
 from core.triage_rules import PESO_ROL
 
-DATASET_PATH = Path(__file__).parent.parent.parent / "evaluation" / "sample_tickets.json"
-MODEL_PATH = Path(__file__).parent / "models" / "baseline.joblib"
+import os
+# Buscar dataset relativo a este script o en la raíz esperada
+DATASET_PATHS = [
+    Path(__file__).parent.parent.parent.parent / "evaluation" / "sample_tickets.json",  # /evaluation
+    Path("/evaluation") / "sample_tickets.json",  # Si está montado en /
+]
+DATASET_PATH = None
+for path in DATASET_PATHS:
+    if path.exists():
+        DATASET_PATH = path
+        break
+if not DATASET_PATH:
+    raise FileNotFoundError(f"Dataset no encontrado en: {DATASET_PATHS}")
+MODEL_PATH = Path(__file__).parent / "models" / "baseline.pkl"
 MODEL_PATH.parent.mkdir(exist_ok=True)
 
 def load_dataset():
@@ -70,7 +82,8 @@ def train_baseline():
     
     print(f"\nSaving to {MODEL_PATH.name}...")
     metadata = {"vectorizer": vectorizer, "scaler": scaler, "role_std": float(role_std)}
-    joblib.dump({"model": model, "metadata": metadata}, MODEL_PATH)
+    with open(MODEL_PATH, 'wb') as f:
+        pickle.dump({"model": model, "metadata": metadata}, f)
     print(f"Model size: {MODEL_PATH.stat().st_size / 1024:.1f} KB")
     print("\nSUCCESS: Model trained and saved")
 
