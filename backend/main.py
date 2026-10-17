@@ -30,7 +30,17 @@ def get_roles():
 
 @app.post("/api/triage", response_model=TicketResponse)
 def process_ticket(ticket: TicketRequest):
-    prioridad, explicacion = calcular_prioridad(ticket.titulo, ticket.texto, ticket.rol_usuario)
+    # S2: Usar modelo ML si está disponible, fallback a heurística S1
+    if nlp_engine.is_loaded():
+        try:
+            prioridad, confianza, explicacion = nlp_engine.predecir(
+                ticket.titulo, ticket.texto, ticket.rol_usuario
+            )
+        except Exception as e:
+            print(f"⚠️ Model inference error: {e}. Falling back to heuristic.")
+            prioridad, explicacion = calcular_prioridad(ticket.titulo, ticket.texto, ticket.rol_usuario)
+    else:
+        prioridad, explicacion = calcular_prioridad(ticket.titulo, ticket.texto, ticket.rol_usuario)
     ticket_id = str(uuid.uuid4())
     nivel_texto = ETIQUETAS[prioridad]
     ticket_response = TicketResponse(
