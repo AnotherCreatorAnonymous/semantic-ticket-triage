@@ -13,9 +13,20 @@ PESO_ROL = {
     RolUsuario.CEO: 5
 }
 
-PALABRAS_CRITICAS = {"ransomware", "brecha", "ataque", "hackeo", "virus", "malware", "phishing"}
-PALABRAS_ALTAS = {"acceso", "contraseña", "bloqueado", "urgente"}
-EXTENSIONES_SOSPECHOSAS = {"lock", "locked", "encrypted", "crypt"}
+PALABRAS_CRITICAS = {
+    "ransomware", "brecha", "ataque", "hackeo", "virus", "malware", "phishing", "spyware", "troyano",
+    "fondo", "pantalla", "rojo", "candado", "ventana", "popup", "popups", "dialogo",
+    "lento", "congelado", "bloqueado", "no abre", "no puedo", "se cierra", "abre solo",
+    "reinicia", "cuelga", "se congela", "desaparece", "extrano", "sospechosa",
+    "pagar", "rescate", "recuperar", "desbloquear", "dinero", "bitcoin",
+    "cifrado", "encriptado", "protegido", "datos", "archivo", "corrupto", "critico"
+}
+
+PALABRAS_ALTAS = {
+    "acceso", "contrasena", "urgente", "error", "falla", "problema", "permisos", "cuenta"
+}
+
+EXTENSIONES_SOSPECHOSAS = {"lock", "locked", "encrypted", "crypt", "encrypt"}
 
 BONUS_CRITICO = 2
 BONUS_ALTO = 1
