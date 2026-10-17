@@ -6,6 +6,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 class RolUsuario(str, Enum):
     EMPLEADO = "Empleado General"
+    SECRETARIA = "Secretaria"
     ANALISTA = "Analista / Contable"
     SUPERVISOR = "Supervisor / Coordinador"
     GERENTE = "Gerente / Director"

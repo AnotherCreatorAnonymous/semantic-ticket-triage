@@ -11,28 +11,31 @@ export default function Home() {
   const { agregar } = useQueue();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/10 border-b border-white/20 shadow-lg">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <div className="text-3xl">🛡️</div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+      {/* Header Premium */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/5 border-b border-white/10 shadow-2xl">
+        <div className="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+          <div className="flex items-center gap-4">
+            <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">🛡️</div>
             <div>
-              <h1 className="text-2xl font-bold text-white">SOC Triage</h1>
-              <p className="text-xs text-blue-200">Semantic Security Incident Management</p>
+              <h1 className="text-3xl font-bold text-white">SOC Triage</h1>
+              <p className="text-sm text-slate-400">Semantic Security Incident Management Platform</p>
             </div>
           </div>
           <HealthIndicator />
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-12">
-        <div className="mb-12">
-          <h2 className="text-4xl font-bold text-white mb-2">Centro de Reportes</h2>
-          <p className="text-lg text-blue-100">Gestiona y prioriza incidentes de seguridad con IA explicable</p>
+      {/* Hero Section */}
+      <div className="bg-gradient-to-b from-blue-500/10 to-transparent border-b border-blue-400/20 py-12">
+        <div className="max-w-7xl mx-auto px-8">
+          <h2 className="text-5xl font-bold text-white mb-3">Centro de Reportes</h2>
+          <p className="text-lg text-slate-300">Triage automático y análisis explicable de incidentes de seguridad</p>
         </div>
+      </div>
 
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Sidebar - Formulario */}
           <aside className="lg:col-span-1">
@@ -43,17 +46,16 @@ export default function Home() {
 
           {/* Main - Cola de Tickets */}
           <section className="lg:col-span-2">
-            <div className="rounded-xl overflow-hidden">
-              <TicketQueue />
-            </div>
+            <TicketQueue />
           </section>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 mt-16 py-8 px-6">
-        <div className="max-w-7xl mx-auto text-center text-sm text-blue-200">
-          <p>SOC Triage • Triage semántico inteligente de incidentes de seguridad</p>
+      <footer className="border-t border-white/10 mt-20 py-12 px-8 bg-gradient-to-t from-blue-500/5 to-transparent">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-sm text-slate-400">SOC Triage • Triage semántico inteligente de incidentes de seguridad</p>
+          <p className="text-xs text-slate-500 mt-2">S1 Heurística • S2 ML Baseline • S3 Explicabilidad</p>
         </div>
       </footer>
     </div>
