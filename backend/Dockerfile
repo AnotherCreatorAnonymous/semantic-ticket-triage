@@ -27,5 +27,6 @@ RUN chmod +x /app/entrypoint.sh
 # Exponer el puerto de FastAPI
 EXPOSE 8000
 
-# Entrypoint que entrena el modelo si es necesario
-ENTRYPOINT ["/app/entrypoint.sh"]
+# El comando de arranque está sobrescrito en el docker-compose para usar --reload,
+# pero es buena práctica dejar el comando por defecto para producción.
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
