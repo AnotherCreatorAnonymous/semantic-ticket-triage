@@ -10,8 +10,8 @@
 |--------|----------|--------|
 | S1 | Heurística, 150 tickets, 12 tests | ✅ Completado + mejorado |
 | S2 | TF-IDF + LogReg, /health, DELETE /queue/{id}, métricas | ✅ Completado |
-| S3 | LIME XAI, visualizaciones | ⏳ Siguiente |
-| S4 | Feedback humano, análisis sesgo, demo | ⏳ Futuro |
+| S3 | React frontend, 5 prioridades, 7 roles, auto-training | ✅ Completado |
+| S4 | LIME XAI, feedback humano, análisis sesgo | ⏳ Siguiente |
 
 ---
 
@@ -51,6 +51,45 @@ MODELO (S2):
 - ✅ 4 tests de modelo (`test_s2_model.py`, 3 skipped por validación)
 - ✅ 12 tests S1 siguen pasando
 - **Total: 17/17 tests pasando**
+
+---
+
+## Resultados S3
+
+### Frontend Migration: Streamlit → React
+
+**Dónde:** `frontend/src/` con estructura Next.js 14
+- `components/`: 11 componentes React (TicketCard, TicketForm, TicketQueue, XaiChart, etc.)
+- `hooks/`: SWR para estado reactivo (useQueue, useRoles)
+- `lib/`: api-client, priority colors (5 niveles), xai parser, format utilities
+- `types/api.ts`: TypeScript espejo de Pydantic schemas
+
+**Cómo:** 
+- TypeScript strict mode + Tailwind CSS para profesionalismo
+- Custom dropdown select (mejor que HTML select)
+- TicketCard dinámico: expandible, color-coded, con animaciones
+- Pagination: 15 tickets/page con componente reutilizable
+- HMR (Hot Module Reload) en desarrollo para feedback inmediato
+
+**Por qué:**
+- React/Next.js: Type-safe, mejor rendimiento que Streamlit, SSR-ready
+- Tailwind CSS: Profesional, consistente, accesible (WCAG AA)
+- 5 prioridades: Semáforo visual (BAJO→MEDIA_BAJA→MEDIO→ALTO→CRÍTICO)
+- 7 roles: Cobertura de actores, incluyendo Secretaria (nuevo)
+- SWR: Reactive state, cache invalidation automática
+- HMR: Iteración rápida en desarrollo
+
+**Resultados:**
+- ✅ 11 componentes funcionales
+- ✅ 5 niveles de prioridad color-coded
+- ✅ 7 roles (nuevo: Secretaria)
+- ✅ Custom select dropdown
+- ✅ TicketCard dinámico con XAI expansion
+- ✅ Pagination funcional
+- ✅ WCAG AA compliance
+- ✅ TypeScript strict: 0 errores
+- ✅ Security: 0 CRITICAL/HIGH issues
+- ✅ Auto-training model en docker compose up
 
 ---
 
