@@ -17,6 +17,7 @@ export function TicketForm({ roles, onSuccess }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string[]>([]);
   const [success, setSuccess] = useState(false);
+  const [showRoleDropdown, setShowRoleDropdown] = useState(false);
 
   useEffect(() => {
     if (roles.length > 0 && !rol) {
@@ -54,8 +55,8 @@ export function TicketForm({ roles, onSuccess }: Props) {
 
   return (
     <form onSubmit={handleSubmit} className="p-8 bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl border border-blue-400/20 shadow-2xl backdrop-blur-sm hover:border-blue-400/40 transition-all">
-      <div className="mb-6">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 rounded-full mb-3">
+      <div className="mb-8">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-500 to-cyan-500 px-4 py-2 rounded-full mb-4 shadow-lg">
           <span className="text-white text-sm font-bold">📋 NUEVO REPORTE</span>
         </div>
         <h2 className="text-3xl font-bold text-white">Reportar Incidente</h2>
@@ -114,22 +115,43 @@ export function TicketForm({ roles, onSuccess }: Props) {
         <label className="block text-sm font-semibold text-white mb-3">
           Rol / Departamento
         </label>
-        <select
-          value={rol}
-          onChange={(e) => setRol(e.target.value)}
-          className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer hover:bg-slate-700/70 font-medium"
-          required
-        >
-          {roles && roles.length > 0 ? (
-            roles.map((r) => (
-              <option key={r} value={r} className="bg-slate-800 text-white">
-                {r}
-              </option>
-            ))
-          ) : (
-            <option disabled className="bg-slate-800">Cargando roles...</option>
+        
+        {/* Custom Dropdown */}
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => setShowRoleDropdown(!showRoleDropdown)}
+            className="w-full px-4 py-3 bg-slate-700/50 border border-slate-600 rounded-xl text-white text-left flex justify-between items-center hover:bg-slate-700/70 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all font-medium"
+          >
+            <span>{rol || 'Selecciona un rol...'}</span>
+            <span className={`transition-transform ${showRoleDropdown ? 'rotate-180' : ''}`}>▼</span>
+          </button>
+
+          {/* Dropdown Menu */}
+          {showRoleDropdown && roles.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-slate-800 border border-slate-600 rounded-xl shadow-xl z-50 overflow-hidden backdrop-blur-sm">
+              {roles.map((r, idx) => (
+                <button
+                  key={r}
+                  type="button"
+                  onClick={() => {
+                    setRol(r);
+                    setShowRoleDropdown(false);
+                  }}
+                  className={`w-full px-4 py-3 text-left font-medium transition-all text-white
+                    ${r === rol ? 'bg-blue-600/40 border-l-4 border-blue-500' : 'hover:bg-slate-700/50'}
+                    ${idx !== roles.length - 1 ? 'border-b border-slate-700' : ''}
+                  `}
+                >
+                  <span className="flex items-center gap-3">
+                    <span>{r === rol ? '✓' : '◯'}</span>
+                    <span>{r}</span>
+                  </span>
+                </button>
+              ))}
+            </div>
           )}
-        </select>
+        </div>
       </div>
 
       <button
