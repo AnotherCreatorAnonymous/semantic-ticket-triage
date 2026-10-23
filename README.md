@@ -2,7 +2,7 @@
 
 Sistema que **prioriza automáticamente** los tickets de TI y Seguridad (nivel 1 a 5) y **explica por qué** asignó cada prioridad, para combatir la *fatiga de alertas* en los Centros de Operaciones de Seguridad (SOC).
 
-> **Estado:** ✅ Entregas 2 de 4 completadas: flujo end-to-end, dataset etiquetado, modelo entrenado (56.7% accuracy).
+> **Estado:** ✅ Entregas 2 de 4 completadas: flujo end-to-end, dataset etiquetado, modelo entrenado (88.8% accuracy).
 > Ver el roadmap completo en [`plan-entregas.md`](plan-entregas.md).
 
 **Equipo:** Carlos Felipe Jiménez Sposito · David Santiago Castro Sierra · Roger Mauricio Durán Guacaneme
@@ -132,7 +132,7 @@ La heurística de la Entrega 1 se evaluó contra el dataset etiquetado:
 
 La Entrega 2 se evaluó contra el dataset etiquetado (188 tickets):
 
-| Métrica | Heurística S1 Original | Modelo TF-IDF+LogReg (S2) | Mejora |
+| Métrica | Heurística S1 | Modelo TF-IDF+LogReg (S2) | Mejora |
 |---------|---|---|---|
 | **Exactitud** | 24.0% | **88.8%** | +45.2pp |
 | **Precisión (weighted)** | 48.4% | **88.8%** | +40.4pp |
