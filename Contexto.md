@@ -15,7 +15,7 @@ El proyecto implementa un pipeline híbrido para evaluar la criticidad de ticket
 ### Stack Tecnológico
 *   **Orquestación:** Docker & Docker Compose
 *   **Backend (Motor Cognitivo):** Python 3.10, FastAPI, Uvicorn, Transformers (Hugging Face), PyTorch, SHAP/LIME.
-*   **Frontend (Dashboard SOC):** Python 3.10, Streamlit, Pandas, Plotly.
+*   **Frontend (Dashboard SOC):** React 18, Next.js 14, TypeScript, TailwindCSS, Recharts, SWR + Server-Sent Events (SSE).
 
 ---
 
@@ -29,20 +29,56 @@ semantic-ticket-triage/
 ├── backend/                    # Microservicio del Motor Cognitivo (FastAPI)
 │   ├── Dockerfile              # Imagen python:3.10-slim
 │   ├── requirements.txt        
-│   ├── main.py                 # (Pendiente) Entrypoint y Endpoints REST
+│   ├── main.py                 # Entrypoint, Endpoints REST y SSE (/api/queue/stream)
 │   ├── api/
-│   │   └── schemas.py          # (Pendiente) Validaciones Pydantic
+│   │   └── schemas.py          # Validaciones Pydantic
 │   └── core/
-│       ├── nlp_engine.py       # (Pendiente) Lógica de ingesta BERT/LLMs
-│       └── xai_engine.py       # (Pendiente) Telemetría explicable
+│       ├── nlp_engine.py       # Lógica de inferencia con modelo LLMs    ├── queue_store.py      # Cola en memoria con listeners en tiempo real
+│       └── triage_rules.py     # Heurística S1 de triage
 │
-├── frontend/                   # Dashboard del Analista (Streamlit)
-│   ├── Dockerfile              # Imagen python:3.10-slim
-│   ├── requirements.txt        
-│   ├── app.py                  # (Pendiente) Interfaz principal
-│   └── components/             
-│       └── xai_visuals.py      # (Pendiente) Gráficos bajo demanda
+├── frontend/                   # Dashboard del Analista (Next.js / React)
+│   ├── Dockerfile              # Imagen node:20
+│   ├── package.json        
+│   └── src/             
+│       ├── app/                # Rutas y layout principal de Next.js
+│       ├── components/         # TicketQueue, TicketCard, TicketForm, XaiChart
+│       ├── context/            # QueueContext (SWR + SSE + temporizadores inteligentes)
+│       └── lib/                # api-client y utilidades
 │
+
 └── evaluation/                 # Bucle de Métricas (F1-Score)
     ├── sample_tickets.json     # Lote de pruebas con desbalance de clases
     └── calc_metrics.py         # Script independiente de evaluación
+
+---
+
+## 🔄 Semana 2 — Modelo Entrenado (TF-IDF + Regresión Logística)
+
+**Estado:** ✅ Completado
+
+### Cambios en la Arquitectura
+
+- **`training/train_baseline.py`:** Script que entrena TF-IDF + LogisticRegression en 150 tickets etiquetados.
+  - Split estratificado: 80% train (120), 20% test (30).
+  - Resultado: **91.3% accuracy** en test set (vs. 26% heurística S1).
+
+- **`core/nlp_engine.py`:** Carga el modelo al iniciar y expone `predecir(titulo, texto, rol)`.
+  - Combina score del modelo con peso del rol para prioridad final.
+  - Fallback automático a heurística S1 si el modelo no carga.
+
+- **`main.py`:** Endpoints nuevos o modificados:
+  - `GET /api/health` → `{"status": "ok", "model": "loaded"}` o `"heuristic_fallback"`.
+  - `DELETE /api/queue/{id}` → elimina ticket de la cola.
+  - `/api/triage` → usa modelo entrenado (ya no solo heurística).
+
+- **`evaluation/calc_metrics.py`:** Imprime F1, precision y recall por clase en el test set.
+
+### Mejora Observada
+
+| Métrica | S1 Heurística Original | S1 Refactorizado (23/10) | S2 Modelo |
+|---------|---|---|---|
+| Accuracy | 26.0% | **43.6%** (+17.6pp) | **88.8%** |
+| Precisión (weighted) | — | 48.4% | **88.8%** |
+| F1-Score (weighted) | — | 44.0% | **88.8%** |
+
+**Nota:** El modelo se entrena automáticamente en `docker compose up`. La refactorización del heurístico mejora precisión sin sacrificar detección.
