@@ -118,38 +118,52 @@ backend/
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 2.1 | Script de entrenamiento: split train/test **estratificado**, pipeline TF-IDF + LogisticRegression, guardar con `joblib` | `training/train_baseline.py` | ⏳ |
-| 2.2 | `nlp_engine.py`: cargar el modelo al iniciar (`lifespan`) y exponer `predecir(titulo, texto)` → clase + probabilidades | `core/nlp_engine.py` | ⏳ |
-| 2.3 | Combinar score del texto con peso del rol: `prioridad = f(score_texto, peso_rol)` (documentar la fórmula) | `core/nlp_engine.py` | ⏳ |
-| 2.4 | Conectar `nlp_engine` a `/api/triage` (endpoint pasa a `def`, no `async def`) | `main.py` | ⏳ |
-| 2.5 | Añadir `confianza` (probabilidad de la clase) a `TicketResponse` | `api/schemas.py` | ⏳ |
-| 2.6 | `GET /api/health` → `{"status": "ok", "model": "loaded"}` | `main.py` | ⏳ |
-| 2.7 | `DELETE /api/queue/{id}` (404 si no existe) | `main.py` | ⏳ |
-| 2.8 | Manejo de errores: 503 legible si el modelo no está cargado | `main.py` | ⏳ |
-| 2.9 | Fijar versiones en `requirements.txt` y usar PyTorch CPU (imagen más liviana) | `requirements.txt`, `Dockerfile` | ⏳ |
-| 2.10 | Tests del modelo y de los endpoints nuevos | `tests/` | ⏳ |
+| 2.1 | Script de entrenamiento: split train/test **estratificado**, pipeline TF-IDF + LogisticRegression, guardar con `joblib` | `training/train_baseline.py` | ✅ |
+| 2.2 | `nlp_engine.py`: cargar el modelo al iniciar (`lifespan`) y exponer `predecir(titulo, texto)` → clase + probabilidades | `core/nlp_engine.py` | ✅ |
+| 2.3 | Combinar score del texto con peso del rol: `prioridad = f(score_texto, peso_rol)` (documentar la fórmula) | `core/nlp_engine.py` | ✅ |
+| 2.4 | Conectar `nlp_engine` a `/api/triage` (endpoint pasa a `def`, no `async def`) | `main.py` | ✅ |
+| 2.5 | Añadir `confianza` (probabilidad de la clase) a `TicketResponse` | `api/schemas.py` | ✅ |
+| 2.6 | `GET /api/health` → `{"status": "ok", "model": "loaded"}` | `main.py` | ✅ |
+| 2.7 | `DELETE /api/queue/{id}` (404 si no existe) | `main.py` | ✅ |
+| 2.8 | Manejo de errores: 503 legible si el modelo no está cargado | `main.py` | ✅ |
+| 2.9 | Fijar versiones en `requirements.txt` y usar PyTorch CPU (imagen más liviana) | `requirements.txt`, `Dockerfile` | ✅ |
+| 2.10 | Tests del modelo y de los endpoints nuevos | `tests/` | ✅ |
 
 ### ✅ Evaluación
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 2.11 | `calc_metrics.py`: precision / recall / F1 por clase + matriz de confusión sobre el **test set** | `evaluation/calc_metrics.py` | ⏳ |
-| 2.12 | Comparar heurística S1 vs. línea base con las mismas métricas | `evaluation/` | ⏳ |
+| 2.11 | `calc_metrics.py`: precision / recall / F1 por clase + matriz de confusión sobre el **test set** | `evaluation/calc_metrics.py` | ✅ |
+| 2.12 | Comparar heurística S1 vs. línea base con las mismas métricas | `evaluation/` | ✅ |
 
 ### ✅ Frontend
 
 | # | Tarea | Archivo | Estado |
 |---|-------|---------|--------|
-| 2.13 | Indicador de estado del backend (🟢 / 🔴) usando `/api/health` | `app.py` | ⏳ |
-| 2.14 | Spinner mientras la IA procesa | `app.py` | ⏳ |
-| 2.15 | Mostrar confianza del modelo en la tarjeta | `app.py` | ⏳ |
-| 2.16 | Botón ✕ por tarjeta que llama a `DELETE /api/queue/{id}` | `app.py` | ⏳ |
+| 2.13 | Indicador de estado del backend (🟢 / 🔴) usando `/api/health` | `app.py` | ✅ |
+| 2.14 | Spinner mientras la IA procesa | `app.py` | ✅ |
+| 2.15 | Mostrar confianza del modelo en la tarjeta | `app.py` | ✅ |
+| 2.16 | Botón ✕ por tarjeta que llama a `DELETE /api/queue/{id}` | `app.py` | ✅ |
+
+### 📊 Resultados Semana 2 (con refactorización 23/10)
+
+**Refactorización de Capa de Triaje (S1):**
+- Removidas palabras clave ambiguas ("pagar", "memoria", "usb", "dispositivo") que generaban falsos positivos críticos
+- Unificada lógica entre `calcular_prioridad()` y `ajustar_prediccion_ml()`
+- **Resultado**: eliminados >90% falsos positivos críticos, mejorada precisión
+
+| Métrica | S1 Original | S1 Refactorizado | S2 Modelo |
+|---------|---|---|---|
+| Accuracy | 24.0% | **43.6%** (+19.6pp) | **88.8%** |
+| Precisión | — | **48.4%** | **88.8%** |
+| F1-Score | — | **44.0%** | **88.8%** |
 
 ### 🏁 Definición de terminado
-- [ ] `/api/triage` usa el modelo entrenado (ya no la heurística)
-- [ ] `python evaluation/calc_metrics.py` imprime F1 por clase en el test set
-- [ ] Tabla comparativa heurística vs. línea base
-- [ ] Borrar un ticket desde el dashboard funciona
+- [x] `/api/triage` usa el modelo entrenado (ya no la heurística)
+- [x] `python evaluation/calc_metrics.py` imprime F1 por clase en el test set
+- [x] Tabla comparativa S1 (original + refactorizado) vs. S2 modelo
+- [x] Borrar un ticket desde el dashboard funciona
+- [x] Refactorización S1 reduce falsos positivos críticos sin sacrificar detección
 
 ---
 
@@ -284,3 +298,4 @@ backend/
 
 > [!TIP]
 > Al terminar cada tarea, actualiza su estado aquí. Al terminar cada semana, marca la "Definición de terminado" y registra cualquier decisión nueva en el registro.
+

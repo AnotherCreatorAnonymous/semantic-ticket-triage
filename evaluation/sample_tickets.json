@@ -1498,5 +1498,385 @@
     "prioridad": 5,
     "ambiguo": false,
     "nota": ""
+  },
+  {
+    "id": "T151",
+    "titulo": "Página caída por ataque",
+    "texto": "El proveedor de hosting dice que estamos recibiendo un ataque DDoS y la tienda en línea no carga.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: DDoS"
+  },
+  {
+    "id": "T152",
+    "titulo": "Errores raros en el formulario web",
+    "texto": "En los logs del portal veo peticiones con ' OR 1=1 y comandos SQL en el campo de usuario.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: inyección SQL"
+  },
+  {
+    "id": "T153",
+    "titulo": "Actualización del software contable sospechosa",
+    "texto": "El proveedor del software contable avisó que su última actualización traía código malicioso y ya la instalamos en todos los equipos.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: cadena de suministro"
+  },
+  {
+    "id": "T154",
+    "titulo": "Claves de AWS en GitHub",
+    "texto": "Un desarrollador subió por error las claves de AWS a un repositorio público de GitHub.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: secretos filtrados"
+  },
+  {
+    "id": "T155",
+    "titulo": "Bucket con documentos público",
+    "texto": "Descubrimos que el bucket de S3 con contratos firmados estaba público desde hace meses.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: nube mal configurada"
+  },
+  {
+    "id": "T156",
+    "titulo": "Usuario administrador que nadie creó",
+    "texto": "En el directorio activo apareció un usuario administrador nuevo que nadie de TI creó.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: persistencia / cuenta falsa"
+  },
+  {
+    "id": "T157",
+    "titulo": "Alertas de inicios fallidos en Microsoft 365",
+    "texto": "Microsoft 365 muestra miles de intentos fallidos contra muchas cuentas desde varios países.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: password spraying"
+  },
+  {
+    "id": "T158",
+    "titulo": "Wifi con el nombre de la empresa",
+    "texto": "En la cafetería del edificio aparece una red wifi abierta con el nombre de la empresa y no es la nuestra.",
+    "rol_usuario": "Administrador de TI",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: evil twin"
+  },
+  {
+    "id": "T159",
+    "titulo": "Los discos aparecen vacíos",
+    "texto": "Varios equipos reiniciaron solos y ahora los discos aparecen vacíos, se borró todo.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: wiper"
+  },
+  {
+    "id": "T160",
+    "titulo": "La intranet lleva a otro sitio",
+    "texto": "Cuando escribo la dirección de la intranet me lleva a una página parecida que me pide la clave.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: DNS hijacking / pharming"
+  },
+  {
+    "id": "T161",
+    "titulo": "Me llegan muchas notificaciones de aprobación",
+    "texto": "El celular no para de pedirme aprobar inicios de sesión que no estoy haciendo, ya van como 20.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: fatiga MFA"
+  },
+  {
+    "id": "T162",
+    "titulo": "le di aprobar sin querer",
+    "texto": "me llegaban muchas notificaciones de autenticacion y por error le di aprobar a una.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: fatiga MFA consumada"
+  },
+  {
+    "id": "T163",
+    "titulo": "Mi celular se quedó sin señal",
+    "texto": "De repente el celular corporativo se quedó sin señal y luego me llegó un correo de que cambiaron la clave del banco.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: SIM swap"
+  },
+  {
+    "id": "T164",
+    "titulo": "Sesión abierta en un dispositivo desconocido",
+    "texto": "En la lista de sesiones activas de mi correo aparece una sesión en un dispositivo que no conozco.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: robo de sesión"
+  },
+  {
+    "id": "T165",
+    "titulo": "Llamada con la voz del gerente",
+    "texto": "Me llamaron con una voz idéntica a la del gerente general pidiendo una transferencia urgente a un proveedor nuevo.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: deepfake de voz"
+  },
+  {
+    "id": "T166",
+    "titulo": "Proveedor cambió la cuenta bancaria",
+    "texto": "Un proveedor escribió pidiendo que le paguemos a una cuenta bancaria nueva, el correo se ve un poco distinto.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: BEC / fraude de proveedor"
+  },
+  {
+    "id": "T167",
+    "titulo": "Ventana dice que tengo virus y que llame",
+    "texto": "Salió una ventana con alarma diciendo que mi pc tiene virus y que llame a un número de soporte técnico de Microsoft.",
+    "rol_usuario": "Secretaria",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: falso soporte técnico"
+  },
+  {
+    "id": "T168",
+    "titulo": "Me pidieron instalar AnyDesk",
+    "texto": "Me llamaron del banco y me pidieron instalar AnyDesk para ayudarme; ya lo instalé y se conectaron a mi equipo.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: acceso remoto fraudulento"
+  },
+  {
+    "id": "T169",
+    "titulo": "Código QR en el parqueadero",
+    "texto": "Hay carteles con un código QR para registrar el carro en el parqueadero; lleva a una página que pide el usuario corporativo.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: quishing"
+  },
+  {
+    "id": "T170",
+    "titulo": "SMS de paquete retenido",
+    "texto": "Me llegó un mensaje de texto diciendo que tengo un paquete retenido y que pague en un link, no lo abrí.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: smishing sin interacción"
+  },
+  {
+    "id": "T171",
+    "titulo": "Correo raro pidiendo validar cuenta",
+    "texto": "Me llegó un correo raro pidiendo validar mi cuenta de correo, no le di clic.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: phishing sin interacción"
+  },
+  {
+    "id": "T172",
+    "titulo": "Excompañero descargó la base de clientes",
+    "texto": "Vimos que un empleado que renunció descargó toda la base de clientes a una USB su último día.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: amenaza interna"
+  },
+  {
+    "id": "T173",
+    "titulo": "Envía archivos a su correo personal",
+    "texto": "Un analista está enviando archivos de clientes a su correo personal todos los días.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: fuga interna"
+  },
+  {
+    "id": "T174",
+    "titulo": "Aparato entre el teclado y el pc",
+    "texto": "Encontré un aparatito conectado entre el cable del teclado y el computador de recepción.",
+    "rol_usuario": "Secretaria",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: keylogger físico"
+  },
+  {
+    "id": "T175",
+    "titulo": "Persona desconocida en el cuarto de servidores",
+    "texto": "Vi a alguien desconocido saliendo del cuarto de servidores sin carnet.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: acceso físico"
+  },
+  {
+    "id": "T176",
+    "titulo": "Extensión rara en el navegador",
+    "texto": "Apareció una extensión en Chrome que no instalé y me cambia los resultados de búsqueda.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: extensión maliciosa"
+  },
+  {
+    "id": "T177",
+    "titulo": "Ventilador a tope todo el día",
+    "texto": "El portátil está siempre lento y el ventilador a tope; el administrador de tareas muestra un proceso desconocido usando toda la CPU.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 4,
+    "ambiguo": false,
+    "nota": "ampliación: posible criptominería"
+  },
+  {
+    "id": "T178",
+    "titulo": "me sale un candado",
+    "texto": "no me deja entrar, sale un candado rojo y dice que pague para recuperar mis datos.",
+    "rol_usuario": "Secretaria",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: ransomware (lenguaje informal)"
+  },
+  {
+    "id": "T179",
+    "titulo": "el fondo de pantalla cambió solo",
+    "texto": "el fondo de pantalla cambió solo a un mensaje que dice que mis archivos están secuestrados.",
+    "rol_usuario": "Empleado General",
+    "categoria": "seguridad",
+    "prioridad": 5,
+    "ambiguo": false,
+    "nota": "ampliación: ransomware (lenguaje informal)"
+  },
+  {
+    "id": "T180",
+    "titulo": "olvidé mi contraseña",
+    "texto": "No puedo entrar al computador porque olvidé la contraseña.",
+    "rol_usuario": "Empleado General",
+    "categoria": "soporte",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T181",
+    "titulo": "olvidé mi clave",
+    "texto": "hola no puedo usar mi pc porque olvidé mi clave.",
+    "rol_usuario": "Secretaria",
+    "categoria": "soporte",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T182",
+    "titulo": "No recuerdo la contraseña",
+    "texto": "No recuerdo la contraseña del correo, necesito que me la restablezcan.",
+    "rol_usuario": "Analista / Contable",
+    "categoria": "soporte",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T183",
+    "titulo": "Restablecer contraseña",
+    "texto": "Olvidé la contraseña de mi equipo, por favor restablecerla.",
+    "rol_usuario": "Supervisor / Coordinador",
+    "categoria": "soporte",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T184",
+    "titulo": "Olvidé la contraseña del equipo",
+    "texto": "Olvidé la contraseña y no puedo entrar al computador.",
+    "rol_usuario": "Gerente / Director",
+    "categoria": "soporte",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T185",
+    "titulo": "olvidé mi contraseña",
+    "texto": "No puedo entrar a mi equipo porque olvidé la contraseña y tengo junta en 20 minutos.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "soporte",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T186",
+    "titulo": "Cambiar fondo de pantalla",
+    "texto": "Quiero poner el logo nuevo de la empresa como fondo de pantalla.",
+    "rol_usuario": "Empleado General",
+    "categoria": "soporte",
+    "prioridad": 1,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T187",
+    "titulo": "La impresora no imprime",
+    "texto": "La impresora de mi puesto no imprime, sale papel en blanco.",
+    "rol_usuario": "Secretaria",
+    "categoria": "soporte",
+    "prioridad": 2,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
+  },
+  {
+    "id": "T188",
+    "titulo": "La impresora no imprime",
+    "texto": "La impresora de mi oficina no imprime y necesito el contrato para firmar hoy.",
+    "rol_usuario": "CEO / Alta Dirección",
+    "categoria": "soporte",
+    "prioridad": 3,
+    "ambiguo": false,
+    "nota": "ampliación: contraste por rol"
   }
 ]
